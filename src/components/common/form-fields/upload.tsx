@@ -1,7 +1,7 @@
 import React from "react";
 import { useDropzone } from "react-dropzone";
-import { ICONS } from "../../assets/icons";
-import Button from "../partial/Button";
+import { ICONS } from "../../../assets/icons";
+import Button from "../partial/button";
 
 const Upload = () => {
   const { getRootProps, getInputProps } = useDropzone();

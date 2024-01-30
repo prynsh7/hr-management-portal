@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
-import Card from '../../components/partial/Card'
-import Table from '../../components/Table/Table'
-import Button from "../../components/partial/Button";
+import Table from '../../components/common/table/table'
+import Button from "../../components/common/partial/button";
 import { IMAGES } from "../../assets/images";
-import Heading from '../../components/partial/Heading';
-import Modal from '../../components/Modal/Modal';
-import Input from '../../components/FormFileds/Input';
+import Heading from '../../components/common/partial/heading';
+import Modal from '../../components/common/modal/modal';
+import Input from '../../components/common/form-fields/input';
 
 type Props = {}
 interface DataType {

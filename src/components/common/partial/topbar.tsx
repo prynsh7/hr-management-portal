@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import { TOPBAR_BG_TRANSPARENT_PAGES } from "../../utils/ComponentManager";
+import { TOPBAR_BG_TRANSPARENT_PAGES } from "../../../utils/ComponentManager";
 
 type Props = {};
 

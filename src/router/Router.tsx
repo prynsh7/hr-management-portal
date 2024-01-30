@@ -6,7 +6,7 @@ import Headings from "../pages/DesignReference/Headings";
 import FormFields from "../pages/DesignReference/FormFields";
 import Buttons from "../pages/DesignReference/Buttons";
 import TableReference from "../pages/DesignReference/TableReference";
-import Department from "../pages/Master/Department";
+import Department from "../pages/master/Department";
 
 type Props = {};
 

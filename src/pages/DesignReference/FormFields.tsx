@@ -1,13 +1,13 @@
 import React from "react";
-import Card from "../../components/partial/Card";
-import Input from "../../components/FormFileds/Input";
-import InputNumber from "../../components/FormFileds/InputNumber";
-import InputArea from "../../components/FormFileds/InputArea";
-import Heading from "../../components/partial/Heading";
-import TImePicker from "../../components/FormFileds/TImePicker";
-import CheckBox from "../../components/FormFileds/CheckBox";
-import Slider from "../../components/FormFileds/Slider";
-import Select from "../../components/FormFileds/Select";
+import Card from "../../components/common/partial/card";
+import Input from "../../components/common/form-fields/input";
+import InputNumber from "../../components/common/form-fields/input-number";
+import InputArea from "../../components/common/form-fields/input-area";
+import Heading from "../../components/common/partial/heading";
+import TImePicker from "../../components/common/form-fields/time-picker";
+import CheckBox from "../../components/common/form-fields/check-box";
+import Slider from "../../components/common/form-fields/slider";
+import Select from "../../components/common/form-fields/select";
 
 type Props = {};
 

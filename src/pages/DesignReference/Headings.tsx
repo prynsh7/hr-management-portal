@@ -1,6 +1,6 @@
 import React from "react";
-import Card from "../../components/partial/Card";
-import Heading from "../../components/partial/Heading";
+import Card from "../../components/common/partial/card";
+import Heading from "../../components/common/partial/heading";
 
 type Props = {};
 

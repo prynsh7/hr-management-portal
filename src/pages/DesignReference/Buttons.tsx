@@ -1,8 +1,8 @@
 import React from "react";
-import Card from "../../components/partial/Card";
-import Button from "../../components/partial/Button";
-import Heading from "../../components/partial/Heading";
-import Badge from "../../components/partial/Badge";
+import Card from "../../components/common/partial/card";
+import Button from "../../components/common/partial/button";
+import Heading from "../../components/common/partial/heading";
+import Badge from "../../components/common/partial/badge";
 
 type Props = {};
 

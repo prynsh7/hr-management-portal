@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Heading from "../../components/partial/Heading";
-import Table from "../../components/Table/Table";
-import Button from "../../components/partial/Button";
+import Heading from "../../components/common/partial/heading";
+import Table from "../../components/common/table/table";
+import Button from "../../components/common/partial/button";
 import { IMAGES } from "../../assets/images";
 
 type Props = {};

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ICONS } from "../../assets/icons";
+import { ICONS } from "../../../assets/icons";
 
 type Props = {
   label?: string;

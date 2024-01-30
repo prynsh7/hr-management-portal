@@ -1,7 +1,7 @@
 import { Menu } from "antd";
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import Topbar from "../components/partial/Topbar";
+import Topbar from "../components/common/partial/topbar";
 import { ICONS } from "../assets/icons";
 import type { MenuProps } from "antd";
 
