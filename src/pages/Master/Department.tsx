@@ -106,7 +106,7 @@ const Department = (props: Props) => {
     return (
         <div>
             <Modal width={'50%'} isOpen={isOpen} handleSubmit={handleCloseModal} handleCancel={handleCloseModal}>
-                <div className='flex flex-col gap-2'>
+                <div className='flex flex-col gap-2 mt-4'>
                     <div>
                         <label className="text-[#333333] opacity-70 font-semibold text-[14px]">
                             Enter Department Name
