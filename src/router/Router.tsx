@@ -1,41 +1,33 @@
-import React from "react";
+import React, { lazy } from "react";
 import { Route, Routes } from "react-router-dom";
-import Home from "../pages/home/Home";
+import Home from "../pages/home/home";
 import DashboardLayout from "../layouts/DashbaordLayout";
-import Headings from "../pages/DesignReference/Headings";
-import FormFields from "../pages/DesignReference/FormFields";
-import Buttons from "../pages/DesignReference/Buttons";
-import TableReference from "../pages/DesignReference/TableReference";
-import Department from "../pages/master/Department";
+import { Loading } from "../components/common/loader/loader";
+import RequireAuth from "../requireAuth";
+import Department from "../pages/master/department";
+
+// const Department = lazy(() => import("../pages/master/department"));
 
 type Props = {};
 
 const Router = (props: Props) => {
+  const a = 1;
   return (
     <Routes>
       <Route path="/" element={<DashboardLayout children={<Home />} />} />
-
-      {/* Design References */}
-      <Route
-        path="/headings"
-        element={<DashboardLayout children={<Headings />} />}
-      />
-      <Route
-        path="/form"
-        element={<DashboardLayout children={<FormFields />} />}
-      />
-      <Route
-        path="/buttons"
-        element={<DashboardLayout children={<Buttons />} />}
-      />
-      <Route
-        path="/table"
-        element={<DashboardLayout children={<TableReference />} />}
-      />
-      <Route
+      {/* <Route path="/department" element={<DashboardLayout children={<Department />} />} /> */}
+      {/* <Route
         path="/department"
-        element={<DashboardLayout children={<Department />} />}
-      />
+        element={
+          <React.Suspense>
+            <RequireAuth>
+              <DashboardLayout>
+                <Department />
+              </DashboardLayout>
+            </RequireAuth>
+          </React.Suspense>
+        }
+      /> */}
     </Routes>
   );
 };

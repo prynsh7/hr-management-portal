@@ -8,7 +8,7 @@ const Home = (props: Props) => {
   return (
     <div>
       <Card>
-        <Heading type="h1" fontWeight="light">
+        <Heading type="h1" fontWeight="light" className="a">
           THis is custom Heading H1 thin
         </Heading>
         <Heading type="h2" fontWeight="light">

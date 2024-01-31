@@ -24,3 +24,6 @@ max-height: -o-calc(100vh - 104px);
 /* Standard */
 max-height: calc(100vh - 104px);
 }
+.ant-menu-submenu-title{
+  padding-left: 15px !important;
+}

@@ -58,7 +58,7 @@ const DashboardLayout = (props: Props) => {
       path: "/",
     },
     {
-      key: "1",
+      key: "2",
       icon: (
         <img
           src={ICONS.SIDEBAR_DASHBOARD}
@@ -70,7 +70,7 @@ const DashboardLayout = (props: Props) => {
       path: "/headings",
     },
     {
-      key: "1",
+      key: "3",
       icon: (
         <img
           src={ICONS.SIDEBAR_DASHBOARD}
@@ -82,7 +82,7 @@ const DashboardLayout = (props: Props) => {
       path: "/form",
     },
     {
-      key: "1",
+      key: "4",
       icon: (
         <img
           src={ICONS.SIDEBAR_DASHBOARD}
@@ -94,7 +94,7 @@ const DashboardLayout = (props: Props) => {
       path: "/buttons",
     },
     {
-      key: "1",
+      key: "5",
       icon: (
         <img
           src={ICONS.SIDEBAR_DASHBOARD}
@@ -106,7 +106,7 @@ const DashboardLayout = (props: Props) => {
       path: "/table",
     },
     {
-      key: "2",
+      key: "6",
       icon: (
         <img
           src={ICONS.SIDEBAR_REQUESTS}
@@ -116,44 +116,45 @@ const DashboardLayout = (props: Props) => {
       ),
       label: "Department",
       path: "/department",
-      type: "subMenu",
-      // childrens: [
-      //   {
-      //     key: 1,
-      //     icon: (
-      //       <img
-      //         src={ICONS.SIDEBAR_REQUESTS}
-      //         className="w-[18px] h-[18px]"
-      //         alt=""
-      //       />
-      //     ),
-      //     label: "Requests",
-      //     path: "/pending",
-      //   },
-      //   {
-      //     key: 2,
-      //     icon: (
-      //       <img
-      //         src={ICONS.SIDEBAR_REQUESTS}
-      //         className="w-[18px] h-[18px]"
-      //         alt=""
-      //       />
-      //     ),
-      //     label: "Completed",
-      //     path: "/completed",
-      //   },
-      // ],
     },
+
     {
-      key: "2",
+      key: "7",
       icon: (
         <img src={ICONS.SIDEBAR_OFFERS} className="w-[18px] h-[18px]" alt="" />
       ),
       label: "Offers",
       path: "/offers",
+      type: "subMenu",
+      children: [
+        {
+          key: "7-1",
+          icon: (
+            <img
+              src={ICONS.SIDEBAR_DASHBOARD}
+              className="w-[18px] h-[18px]"
+              alt=""
+            />
+          ),
+          label: "Requests",
+          path: "/pending",
+        },
+        {
+          key: "7-2",
+          icon: (
+            <img
+              src={ICONS.SIDEBAR_DASHBOARD}
+              className="w-[18px] h-[18px]"
+              alt=""
+            />
+          ),
+          label: "Completed",
+          path: "/completed",
+        },
+      ],
     },
     {
-      key: "2",
+      key: "8",
       icon: (
         <img src={ICONS.SIDEBAR_PROFILE} className="w-[18px] h-[18px]" alt="" />
       ),
@@ -161,7 +162,7 @@ const DashboardLayout = (props: Props) => {
       path: "/profile",
     },
     {
-      key: "2",
+      key: "9",
       icon: (
         <img
           src={ICONS.SIDEBAR_SETTINGS}
@@ -174,64 +175,60 @@ const DashboardLayout = (props: Props) => {
     },
   ];
 
-  const items2 = [
-    getItem(
-      "Dashboard",
-      "1",
-      <img
-        src={ICONS.SIDEBAR_DASHBOARD}
-        className="w-[18px] h-[18px]"
-        alt=""
-      />,
-      "/dashboard",
-      `my-1 flex gap-2 py-3 cursor-pointer rounded-0 m-0 rounded-none px-6 ${
-        location.pathname == "/dashboard"
-          ? "bg-bg_light border-l-4 border-primary"
-          : "text-black"
-      } ${collapsed ? "" : "pl-[20px]"}`
-    ),
-    getItem(
-      "Requests",
-      "2",
-      <img src={ICONS.SIDEBAR_REQUESTS} className="w-[18px] h-[18px]" alt="" />,
-      "",
-      "",
-      [getItem("Requests", "2-1"), getItem("Completed", "2-2")]
-    ),
-    getItem(
-      "Offers",
-      "3",
-      <img src={ICONS.SIDEBAR_OFFERS} className="w-[18px] h-[18px]" alt="" />,
-      "/offers",
-      `my-1 flex gap-2 py-3 cursor-pointer px-6 ${
-        location.pathname == "/offers"
-          ? "bg-bg_light border-l-4 border-primary"
-          : "text-black"
-      } ${collapsed ? "" : "pl-[20px]"}`
-    ),
-    getItem(
-      "Profile",
-      "4",
-      <img src={ICONS.SIDEBAR_PROFILE} className="w-[18px] h-[18px]" alt="" />,
-      "/profile",
-      `my-1 flex gap-2 py-3 cursor-pointer px-6 ${
-        location.pathname == "/profile"
-          ? "bg-bg_light border-l-4 border-primary"
-          : "text-black"
-      } ${collapsed ? "" : "pl-[20px]"}`
-    ),
-    getItem(
-      "Settings",
-      "5",
-      <img src={ICONS.SIDEBAR_SETTINGS} className="w-[18px] h-[18px]" alt="" />,
-      "/settings",
-      `my-1 flex gap-2 py-3 cursor-pointer px-6 ${
-        location.pathname == "/settings"
-          ? "bg-bg_light border-l-4 border-primary"
-          : "text-black"
-      } ${collapsed ? "" : "pl-[20px]"}`
-    ),
-  ];
+  // const items2 = [
+  //   getItem(
+  //     "Dashboard",
+  //     "1",
+  //     <img
+  //       src={ICONS.SIDEBAR_DASHBOARD}
+  //       className="w-[18px] h-[18px]"
+  //       alt=""
+  //     />,
+  //     "/dashboard",
+  //     `my-1 flex gap-2 py-3 cursor-pointer rounded-0 m-0 rounded-none px-6 ${location.pathname == "/dashboard"
+  //       ? "bg-bg_light border-l-4 border-primary"
+  //       : "text-black"
+  //     } ${collapsed ? "" : "pl-[20px]"}`
+  //   ),
+  //   getItem(
+  //     "Requests",
+  //     "2",
+  //     <img src={ICONS.SIDEBAR_REQUESTS} className="w-[18px] h-[18px]" alt="" />,
+  //     "",
+  //     "",
+  //     [getItem("Requests", "2-1"), getItem("Completed", "2-2")]
+  //   ),
+  //   getItem(
+  //     "Offers",
+  //     "3",
+  //     <img src={ICONS.SIDEBAR_OFFERS} className="w-[18px] h-[18px]" alt="" />,
+  //     "/offers",
+  //     `my-1 flex gap-2 py-3 cursor-pointer px-6 ${location.pathname == "/offers"
+  //       ? "bg-bg_light border-l-4 border-primary"
+  //       : "text-black"
+  //     } ${collapsed ? "" : "pl-[20px]"}`
+  //   ),
+  //   getItem(
+  //     "Profile",
+  //     "4",
+  //     <img src={ICONS.SIDEBAR_PROFILE} className="w-[18px] h-[18px]" alt="" />,
+  //     "/profile",
+  //     `my-1 flex gap-2 py-3 cursor-pointer px-6 ${location.pathname == "/profile"
+  //       ? "bg-bg_light border-l-4 border-primary"
+  //       : "text-black"
+  //     } ${collapsed ? "" : "pl-[20px]"}`
+  //   ),
+  //   getItem(
+  //     "Settings",
+  //     "5",
+  //     <img src={ICONS.SIDEBAR_SETTINGS} className="w-[18px] h-[18px]" alt="" />,
+  //     "/settings",
+  //     `my-1 flex gap-2 py-3 cursor-pointer px-6 ${location.pathname == "/settings"
+  //       ? "bg-bg_light border-l-4 border-primary"
+  //       : "text-black"
+  //     } ${collapsed ? "" : "pl-[20px]"}`
+  //   ),
+  // ];
 
   const navigate = useNavigate();
 
@@ -240,21 +237,13 @@ const DashboardLayout = (props: Props) => {
     navigate("/admin/login");
   };
 
-  //   useEffect(() => {
-  //     const token = sessionStorage.getItem("token");
-  //     if (!token) {
-  //       setAuthState(false);
-  //       navigate("/login");
-  //     }
-  //   }, []);
-
   return (
     <div>
       <div className="flex">
         <Menu
           onClick={onClickMenuItem}
           defaultSelectedKeys={["1"]}
-          defaultOpenKeys={["sub1"]}
+          defaultOpenKeys={["sub1"]} // Open the "sub1" submenu by default
           mode="inline"
           style={{
             width: !collapsed ? "260px" : "64px",
@@ -266,14 +255,12 @@ const DashboardLayout = (props: Props) => {
             flexDirection: "column",
             gap: "0px",
           }}
-          // items={items2}
           selectedKeys={[selectedKey]}
           inlineCollapsed={collapsed}
         >
           <div
-            className={`flex mt-2 justify-start ${
-              collapsed ? "pl-[14px]" : "pl-[20px]"
-            }`}
+            className={`flex mt-2 justify-start ${collapsed ? "pl-[14px]" : "pl-[20px]"
+              }`}
           >
             <div
               className="rounded-[12px] p-2 h-[35px] w-[35px] border border-border_light flex items-center justify-center cursor-pointer"
@@ -289,67 +276,52 @@ const DashboardLayout = (props: Props) => {
             </div>
           </div>
           <div
-            className={`flex h-[60px] justify-start mt-8 items-center gap-3 mb-5 ${
-              collapsed ? "pl-[14px]" : "pl-[20px]"
-            }`}
+            className={`flex h-[60px] justify-start mt-8 items-center gap-3 mb-5 ${collapsed ? "pl-[14px]" : "pl-[20px]"
+              }`}
           >
-            {/* <img src={IMAGES.ROUND_LOGO} className="h-[34px] w-[34px]" /> */}
             <div className="h-[34px] w-[34px] bg-primary"></div>
             {collapsed ? null : (
               <div className=" w-full text-xl truncate">CATALYSTS</div>
             )}
           </div>
 
-          {/* {items.map((item) => (
-            <Menu.Item
-              onClick={() => {
-                navigate(item.path);
-              }}
-              style={{
-                color: "black",
-                margin: "4px 0",
-                paddingLeft: location.pathname == item.path ? "14px" : "20px",
-                width: "100%",
-                borderRadius: "0px",
-                // padding: location.pathname == item.path ?"6px 0":"10px 0",
-                borderLeft:
-                  location.pathname == item.path ? "4px solid #03A790" : "none",
-                backgroundColor:
-                  location.pathname == item.path
-                    ? COLORS.bg_light
-                    : "transparent",
-              }}
-              className="sidebar-item"
-              key={item.key}
-              icon={item.icon}
-            >
-              {
-                item.label
-              }
-            </Menu.Item>
-          ))} */}
-          {items.map((item) => (
-            <div
-              onClick={() => {
-                navigate(item.path);
-              }}
-              className={`my-1 flex gap-2 py-3 cursor-pointer px-6 hover:bg-bg_light hover:border-l-4 hover:border-primary hover:pl-[16px] ${
-                location.pathname == item.path
-                  ? "bg-bg_light border-l-4 border-primary pl-[16px]"
-                  : "text-black pl-[20px]"
-              } ${collapsed ? "" : ""}}`}
-            >
-              {item.icon}
-              <div className="text-sm truncate">{item.label}</div>
-            </div>
-          ))}
+          {items.map((item) => {
+            if (item.type === "subMenu" && item.children) {
+              return (
+                <Menu.SubMenu key={item.key} title={item.label} icon={item.icon}>
+                  {item.children.map((subItem) => (
+                    <Menu.Item key={subItem.key} onClick={() => navigate(subItem.path)}>
+                      {/* Updated: Wrapping icon and text in a div with a flex class */}
+                      <div className="flex items-center gap-2">
+                        {subItem.icon}
+                        <div className="text-sm truncate">{subItem.label}</div>
+                      </div>
+                    </Menu.Item>
+                  ))}
+                </Menu.SubMenu>
+              );
+            } else {
+              return (
+                <div
+                  key={item.key}
+                  onClick={() => navigate(item.path)}
+                  className={`my-1 flex gap-2 py-3 cursor-pointer px-6 hover:bg-bg_light hover:border-l-4 hover:border-primary hover:pl-[16px] ${location.pathname === item.path
+                      ? "bg-bg_light border-l-4 border-primary pl-[16px]"
+                      : "text-black pl-[20px]"
+                    } ${collapsed ? "" : ""}`}
+                >
+                  {item.icon}
+                  <div className="text-sm truncate">{item.label}</div>
+                </div>
+              );
+            }
+          })}
         </Menu>
         <div
-          className={`grow bg-main_bg relative ${
-            location.pathname == "/profile" ? "pt-6" : "p-6"
-          }`}
+          className={`grow bg-main_bg relative ${location.pathname === "/profile" ? "pt-6" : "p-6"
+            }`}
         >
-          <div className={`${location.pathname == "/profile" ? "px-6" : ""}`}>
+          <div className={`${location.pathname === "/profile" ? "px-6" : ""}`}>
             <Topbar />
           </div>
 
