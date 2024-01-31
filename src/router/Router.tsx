@@ -2,10 +2,6 @@ import React, { lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "../pages/home/home";
 import DashboardLayout from "../layouts/DashbaordLayout";
-import Headings from "../pages/design-references/headings";
-import FormFields from "../pages/design-references/form-fields";
-import Buttons from "../pages/design-references/buttons";
-import TableReference from "../pages/design-references/table-references";
 import { Loading } from "../components/common/loader/loader";
 import RequireAuth from "../requireAuth";
 
