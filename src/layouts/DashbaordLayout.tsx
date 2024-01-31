@@ -240,14 +240,6 @@ const DashboardLayout = (props: Props) => {
     navigate("/admin/login");
   };
 
-  //   useEffect(() => {
-  //     const token = sessionStorage.getItem("token");
-  //     if (!token) {
-  //       setAuthState(false);
-  //       navigate("/login");
-  //     }
-  //   }, []);
-
   return (
     <div>
       <div className="flex">
@@ -293,48 +285,19 @@ const DashboardLayout = (props: Props) => {
               collapsed ? "pl-[14px]" : "pl-[20px]"
             }`}
           >
-            {/* <img src={IMAGES.ROUND_LOGO} className="h-[34px] w-[34px]" /> */}
             <div className="h-[34px] w-[34px] bg-primary"></div>
             {collapsed ? null : (
               <div className=" w-full text-xl truncate">CATALYSTS</div>
             )}
           </div>
 
-          {/* {items.map((item) => (
-            <Menu.Item
-              onClick={() => {
-                navigate(item.path);
-              }}
-              style={{
-                color: "black",
-                margin: "4px 0",
-                paddingLeft: location.pathname == item.path ? "14px" : "20px",
-                width: "100%",
-                borderRadius: "0px",
-                // padding: location.pathname == item.path ?"6px 0":"10px 0",
-                borderLeft:
-                  location.pathname == item.path ? "4px solid #03A790" : "none",
-                backgroundColor:
-                  location.pathname == item.path
-                    ? COLORS.bg_light
-                    : "transparent",
-              }}
-              className="sidebar-item"
-              key={item.key}
-              icon={item.icon}
-            >
-              {
-                item.label
-              }
-            </Menu.Item>
-          ))} */}
           {items.map((item) => (
             <div
               onClick={() => {
                 navigate(item.path);
               }}
               className={`my-1 flex gap-2 py-3 cursor-pointer px-6 hover:bg-bg_light hover:border-l-4 hover:border-primary hover:pl-[16px] ${
-                location.pathname == item.path
+                location.pathname === item.path
                   ? "bg-bg_light border-l-4 border-primary pl-[16px]"
                   : "text-black pl-[20px]"
               } ${collapsed ? "" : ""}}`}
@@ -346,10 +309,10 @@ const DashboardLayout = (props: Props) => {
         </Menu>
         <div
           className={`grow bg-main_bg relative ${
-            location.pathname == "/profile" ? "pt-6" : "p-6"
+            location.pathname === "/profile" ? "pt-6" : "p-6"
           }`}
         >
-          <div className={`${location.pathname == "/profile" ? "px-6" : ""}`}>
+          <div className={`${location.pathname === "/profile" ? "px-6" : ""}`}>
             <Topbar />
           </div>
 
