@@ -10,6 +10,7 @@ const Department = lazy(() => import("../pages/master/department"));
 type Props = {};
 
 const Router = (props: Props) => {
+  const a = 1;
   return (
     <Routes>
       <Route path="/" element={<DashboardLayout children={<Home />} />} />

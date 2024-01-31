@@ -30,6 +30,7 @@ const Department = (props: Props) => {
     {
       key: "2",
       si_no: "2",
+
       name: "Computer Science",
       code: "44554455",
     },
