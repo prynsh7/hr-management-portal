@@ -21,7 +21,7 @@ const Router = (props: Props) => {
       <Route
         path="/department"
         element={
-          <React.Suspense fallback={<Loading h={"100vh"} />}>
+          <React.Suspense>
             <RequireAuth>
               <DashboardLayout>
                 <Department />

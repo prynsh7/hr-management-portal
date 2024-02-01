@@ -92,9 +92,36 @@ const Department = (props: Props) => {
       title: "Action",
       render: (record: DataType) => (
         <div>
-          <Button state="primary" className="border" onClick={handleOpenModal}>
-            <div className="flex gap-2 items-center">Edit</div>
-          </Button>
+            <Modal width={'50%'} isOpen={isOpen} handleSubmit={handleCloseModal} handleCancel={handleCloseModal}>
+                <div className='flex flex-col gap-2 mt-4'>
+                    <div>
+                        <label className="text-[#333333] opacity-70 font-semibold text-[14px]">
+                            Enter Department Name
+                        </label>
+                        <Input
+                            placeholder='Name'
+                            type='text'
+                        />
+                    </div>
+                    <div>
+                        <label className="text-[#333333] opacity-70 font-semibold text-[14px]">
+                            Enter Code
+                        </label>
+                        <Input
+                            placeholder='Enter code'
+                            type='number'
+                        />
+                    </div>
+                </div>
+            </Modal>
+            <Heading type="h4">Department</Heading>
+            <p>ssssssx</p>
+            <div className='mt-6'>
+                <Table
+                    dataSource={dataSource}
+                    columns={columns}
+                />
+            </div>
         </div>
       ),
     },
