@@ -185,7 +185,6 @@ const DashboardLayout = (props: Props) => {
   const navigate = useNavigate();
 
   const handleSignout = () => {
-    // handleLogout();
     navigate("/admin/login");
   };
 

@@ -3,13 +3,11 @@ import Table from "../../components/common/table/table";
 import Button from "../../components/common/partial/button";
 import { IMAGES } from "../../assets/images";
 import Heading from "../../components/common/partial/heading";
-import Modal from "../../components/master/department-modal";
+import DepartmentModal from "../../components/master/documentcatgory-modal";
 import Input from "../../components/common/form-fields/input";
 import Breadcrumb from "../../components/common/bredcrumb";
-import DepartmentModal from "../../components/master/documentcatgory-modal";
 import { FaRegEdit } from "react-icons/fa";
 
-type Props = {};
 interface DataType {
   key: React.Key;
   name: string;
@@ -17,7 +15,7 @@ interface DataType {
   address: string;
 }
 
-const Department = (props: Props) => {
+const Department = () => {
   const [isOpen, setIsOpen] = useState(false);
   const handleCloseModal = () => setIsOpen(false);
   const handleOpenModal = () => setIsOpen(true);
@@ -95,22 +93,24 @@ const Department = (props: Props) => {
       render: (record: DataType) => (
         <div>
           <Button state="primary" className="border" onClick={handleOpenModal}>
-            <div className="flex gap-1 items-center"><FaRegEdit size={17}/></div>
+            <div className="flex gap-1 items-center">
+              <FaRegEdit size={17} />
+            </div>
           </Button>
         </div>
       ),
     },
-     ];
+  ];
 
-  const breadcrumbItems = ["Home", "Department", "ssssssx"];
+  const breadcrumbItems = ["Home", "Department"];
   return (
     <div>
-      <Modal
+      <DepartmentModal
         isOpen={isOpen}
         onClose={handleCloseModal}
         onSubmit={handleCloseModal}
       />
-        
+
       <Heading type="h4">Department</Heading>
       <Breadcrumb items={breadcrumbItems} />
 

@@ -9,7 +9,7 @@ interface ModalProps {
   handleCancel: () => void;
   width: string;
   submitButtonText: string;
-  cancelButtonTxt: string;
+  cancelButtonText: string;
 }
 
 const Modal: React.FC<ModalProps> = ({
@@ -18,15 +18,15 @@ const Modal: React.FC<ModalProps> = ({
   handleSubmit,
   handleCancel,
   width,
-  cancelButtonTxt = "Close",
+  cancelButtonText = "Close",
   submitButtonText = "Save Change"
 }) => {
   return (
-    <Mod width={width} footer={null} visible={isOpen} onOk={handleSubmit} onCancel={handleCancel} >
+    <Mod width={width} footer={null} open={isOpen} onOk={handleSubmit} onCancel={handleCancel} >
       {children}
       <div className='flex gap-[20px] justify-end mt-[30px]'>
         <Button onClick={handleCancel} className='w-[120px]' state='primary'>
-          {cancelButtonTxt}
+          {cancelButtonText}
         </Button>
         <Button onClick={handleSubmit} className='w-[120px]' type='filled' state='primary'>
          {submitButtonText}

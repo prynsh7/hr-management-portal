@@ -21,7 +21,6 @@ function JobPosition(props: Props) {
   const handleCloseModal = () => setIsOpen(false);
   const handleOpenModal = () => setIsOpen(true);
 
-
   const dataSource = [
     {
       title: "hhhh",
@@ -76,14 +75,14 @@ function JobPosition(props: Props) {
     },
   ];
   const columns = [
-      {
-        title: "Status",
-        render: (record: DataType) => (
-          <div>
-            <StatusToggler />
-          </div>
-        ),
-      },
+    {
+      title: "Status",
+      render: (record: DataType) => (
+        <div>
+          <StatusToggler />
+        </div>
+      ),
+    },
     {
       title: "Title",
       dataIndex: "title",
@@ -111,7 +110,7 @@ function JobPosition(props: Props) {
     },
   ];
   const breadcrumbItems = ["Home", "Job Position", "jkhhx"];
-  
+
   return (
     <div>
       <JobPositionModal
@@ -123,7 +122,12 @@ function JobPosition(props: Props) {
       <Heading type="h4">Employee</Heading>
       <Breadcrumb items={breadcrumbItems} />
       <div className="mt-6 flex flex-col items-end">
-        <Button type="filled" className="mb-4" onClick={handleOpenModal} state="primary">
+        <Button
+          type="filled"
+          className="mb-4"
+          onClick={handleOpenModal}
+          state="primary"
+        >
           Add +
         </Button>
         <Table className="w-full" dataSource={dataSource} columns={columns} />

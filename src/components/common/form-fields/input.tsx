@@ -1,5 +1,5 @@
 import React from "react";
-import { Input as In } from "antd";
+import { Input as AntdInput } from "antd";
 
 type Props = {
   value?: string;
@@ -15,26 +15,59 @@ type Props = {
   height?: number;
   width?: string;
   prefix?: React.ReactNode;
+  label?: String;
+  isRequired?: boolean;
+  errorText?: string;
 };
 
-const Input = (props: Props) => {
+const Input = ({
+  value,
+  onChange,
+  placeholder,
+  className,
+  type,
+  name,
+  id,
+  disabled,
+  required,
+  readOnly,
+  height,
+  width,
+  prefix,
+  label,
+  isRequired,
+  errorText,
+  ...args
+}: Props) => {
   return (
-    <In
-      value={props.value}
-      onChange={props.onChange}
-      placeholder={props.placeholder}
-      className={`rounded-[8px] h-[40px] px-3 py-2 mt-1 ${props.className} ${
-        props.disabled ? "cursor-not-allowed" : ""
-      }`}
-      type={props.type}
-      name={props.name}
-      id={props.id}
-      disabled={props.disabled}
-      required={props.required}
-      readOnly={props.readOnly}
-      width={props.width || "100%"}
-      prefix={props.prefix}
-    />
+    <>
+      {label && (
+        <label className="text-[#1C1B1F] font-semibold text-[14px]" htmlFor="">
+          {label}{" "}
+          {isRequired && <sup className="text-red-500 font-bold">*</sup>}
+        </label>
+      )}
+
+      <AntdInput
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+        className={`rounded-[8px] h-[40px] px-3 py-2 ${className} ${
+          disabled ? "cursor-not-allowed" : ""
+        }`}
+        type={type}
+        name={name}
+        id={id}
+        disabled={disabled}
+        required={required}
+        readOnly={readOnly}
+        width={width || "100%"}
+        prefix={prefix}
+        {...args}
+      />
+
+      {errorText && <span className="text-red-500 text-sm">{errorText}</span>}
+    </>
   );
 };
 
