@@ -5,6 +5,7 @@ import Button from "../../components/common/partial/button";
 import Table from "../../components/common/table/table";
 import Breadcrumb from "../../components/common/bredcrumb";
 
+
 type Props = {};
 interface DataType {
   key: React.Key;

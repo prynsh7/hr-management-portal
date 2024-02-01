@@ -25,7 +25,7 @@ const InputArea = (props: Props) => {
         value={props.value}
         onChange={props.onChange}
         placeholder={props.placeholder}
-        className={`rounded-[8px] h-[40px] px-3 py-2 ${props.className}`}
+        className={`rounded-[8px] h-[40px] mt-1 px-3 py-2 ${props.className}`}
         name={props.name}
         id={props.id}
         disabled={props.disabled}

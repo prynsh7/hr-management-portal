@@ -23,7 +23,7 @@ const Input = (props: Props) => {
       value={props.value}
       onChange={props.onChange}
       placeholder={props.placeholder}
-      className={`rounded-[8px] h-[40px] px-3 py-2 ${props.className} ${
+      className={`rounded-[8px] h-[40px] px-3 py-2 mt-1 ${props.className} ${
         props.disabled ? "cursor-not-allowed" : ""
       }`}
       type={props.type}

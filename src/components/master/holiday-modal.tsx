@@ -2,6 +2,7 @@ import React from 'react'
 import Modal from '../common/modal/modal'
 import Input from '../common/form-fields/input'
 import InputArea from '../common/form-fields/input-area'
+import DatePicker from '../common/form-fields/date-picker'
 
 const HolidayModal = ({isOpen,onSubmit,onClose}:any) => {
   return (
@@ -25,19 +26,13 @@ const HolidayModal = ({isOpen,onSubmit,onClose}:any) => {
             <label className='text-[#333333] opacity-70 font-semibold text-[14px]' htmlFor="">
                 From <sup className='text-red-500 font-bold'>*</sup>
             </label>
-            <Input
-                placeholder='Code'
-                type='date'
-            />
+                <DatePicker/>
             </div>
             <div className='w-full'>
             <label className='text-[#333333] opacity-70 font-semibold text-[14px]' htmlFor="">
                 To <sup className='text-red-500 font-bold'>*</sup>
             </label>
-            <Input
-                placeholder='Code'
-                type='date'
-            />
+            <DatePicker />
             </div>
             
             </div>

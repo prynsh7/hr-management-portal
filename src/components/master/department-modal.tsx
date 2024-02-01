@@ -1,7 +1,5 @@
-import React, { useState } from 'react'
 import Modal from '../common/modal/modal'
 import Input from '../common/form-fields/input'
-import { Switch } from 'antd'
 
 
 const DepartmentModal = ({isOpen, onSubmit, onClose}:any) => {

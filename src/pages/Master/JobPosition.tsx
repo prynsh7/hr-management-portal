@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import Button from "../../components/common/partial/button";
 import Heading from "../../components/common/partial/heading";
 import Table from "../../components/common/table/table";
-import Modal from "../../components/master/jobposition-modal";
 import StatusToggler from "../../components/common/partial/status-toggler";
 import JobPositionModal from "../../components/master/jobposition-modal";
 import Breadcrumb from "../../components/common/bredcrumb";
+import { FaRegEdit } from "react-icons/fa";
 
 type Props = {};
 interface DataType {
@@ -104,7 +104,7 @@ function JobPosition(props: Props) {
       render: (record: DataType) => (
         <div>
           <Button state="primary" className="border" onClick={handleOpenModal}>
-            <div className="flex gap-2 items-center">Edit</div>
+            <div className="flex gap-2 items-center"><FaRegEdit size={17}/></div>
           </Button>
         </div>
       ),
