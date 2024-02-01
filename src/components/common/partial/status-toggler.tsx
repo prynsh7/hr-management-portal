@@ -7,7 +7,7 @@ const StatusToggler = (props: Props) => {
 
     const [status, setStatus] = useState(true)
   return (
-    <div className='rounded-full px-3 p-1 flex items-center text-[14px] gap-1 border border-gray-400 transform transform-all bg-[white]'>
+    <div className='rounded-full px-3 p-1 flex items-center text-[14px] gap-1 transform transform-all bg-[white]'>
         <div className={`${status?'bg-primary':'bg-error'} h-[10px] w-[10px] rounded-full`}>
         </div>
         {

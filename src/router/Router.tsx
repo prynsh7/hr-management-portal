@@ -1,11 +1,14 @@
 import React, { lazy } from "react";
 import { Route, Routes } from "react-router-dom";
-import Home from "../pages/home/home";
 import DashboardLayout from "../layouts/DashbaordLayout";
 import { Loading } from "../components/common/loader/loader";
 import RequireAuth from "../requireAuth";
+import JobPosition from "../pages/master/JobPosition";
+import Home from "../pages/home/Home";
+import DocumentCategory from "../pages/master/DocumentCategory";
+import Holiday from "../pages/master/Holiday";
 
-const Department = lazy(() => import("../pages/master/department"));
+const Department = lazy(() => import("../pages/master/Department"));
 
 type Props = {};
 
@@ -13,7 +16,7 @@ const Router = (props: Props) => {
   const a = 1;
   return (
     <Routes>
-      <Route path="/" element={<DashboardLayout children={<Home />} />} />
+      <Route path="/" element={<DashboardLayout children={<Home/>} />} />
 
       <Route
         path="/department"
@@ -22,6 +25,42 @@ const Router = (props: Props) => {
             <RequireAuth>
               <DashboardLayout>
                 <Department />
+              </DashboardLayout>
+            </RequireAuth>
+          </React.Suspense>
+        }
+      />
+      <Route
+        path="/jobposition"
+        element={
+          <React.Suspense fallback={<Loading h={"100vh"} />}>
+            <RequireAuth>
+              <DashboardLayout>
+                <JobPosition />
+              </DashboardLayout>
+            </RequireAuth>
+          </React.Suspense>
+        }
+      />
+      <Route
+        path="/document-category"
+        element={
+          <React.Suspense fallback={<Loading h={"100vh"} />}>
+            <RequireAuth>
+              <DashboardLayout>
+                <DocumentCategory/>
+              </DashboardLayout>
+            </RequireAuth>
+          </React.Suspense>
+        }
+      />
+      <Route
+        path="/holiday"
+        element={
+          <React.Suspense fallback={<Loading h={"100vh"} />}>
+            <RequireAuth>
+              <DashboardLayout>
+                <Holiday/>
               </DashboardLayout>
             </RequireAuth>
           </React.Suspense>

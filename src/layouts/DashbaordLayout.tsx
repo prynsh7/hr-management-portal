@@ -149,6 +149,30 @@ const DashboardLayout = (props: Props) => {
       icon: (
         <img src={ICONS.SIDEBAR_OFFERS} className="w-[18px] h-[18px]" alt="" />
       ),
+      label: "Job Position",
+      path: "/jobposition",
+    },
+    {
+      key: "2",
+      icon: (
+        <img src={ICONS.SIDEBAR_OFFERS} className="w-[18px] h-[18px]" alt="" />
+      ),
+      label: "Documents",
+      path: "/document-category",
+    },
+    {
+      key: "2",
+      icon: (
+        <img src={ICONS.SIDEBAR_OFFERS} className="w-[18px] h-[18px]" alt="" />
+      ),
+      label: "Holiday",
+      path: "/holiday",
+    },
+    {
+      key: "2",
+      icon: (
+        <img src={ICONS.SIDEBAR_OFFERS} className="w-[18px] h-[18px]" alt="" />
+      ),
       label: "Offers",
       path: "/offers",
     },

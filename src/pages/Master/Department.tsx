@@ -3,7 +3,7 @@ import Table from "../../components/common/table/table";
 import Button from "../../components/common/partial/button";
 import { IMAGES } from "../../assets/images";
 import Heading from "../../components/common/partial/heading";
-import Modal from "../../components/common/modal/modal";
+import Modal from "../../components/master/department-modal";
 import Input from "../../components/common/form-fields/input";
 import Breadcrumb from "../../components/common/bredcrumb";
 
@@ -104,26 +104,12 @@ const Department = (props: Props) => {
   return (
     <div>
       <Modal
-        width={"50%"}
         isOpen={isOpen}
-        handleSubmit={handleCloseModal}
-        handleCancel={handleCloseModal}
-      >
-        <div className="flex flex-col gap-2">
-          <div>
-            <label className="text-[#333333] opacity-70 font-semibold text-[14px]">
-              Enter Department Name
-            </label>
-            <Input placeholder="Name" type="text" />
-          </div>
-          <div>
-            <label className="text-[#333333] opacity-70 font-semibold text-[14px]">
-              Enter Code
-            </label>
-            <Input placeholder="Enter code" type="number" />
-          </div>
-        </div>
-      </Modal>
+        onClose={handleCloseModal}
+        onSubmit={handleCloseModal}
+      />
+        
+      
 
       <Heading type="h4">Department</Heading>
       <Breadcrumb items={breadcrumbItems} />
