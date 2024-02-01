@@ -111,8 +111,6 @@ const Department = (props: Props) => {
         onSubmit={handleCloseModal}
       />
         
-      
-
       <Heading type="h4">Department</Heading>
       <Breadcrumb items={breadcrumbItems} />
 
