@@ -13,7 +13,7 @@ const JobPositionModal = ({isOpen, onSubmit, onClose}:any) => {
 
 
   return (
-    <Modal width={'50%'} isOpen={isOpen} handleSubmit={onSubmit} handleCancel={onClose} cancelButtonTxt='Close' submitButtonText="Save">
+    <Modal width={'50%'} isOpen={isOpen} handleSubmit={onSubmit} handleCancel={onClose} cancelButtonText='Close' submitButtonText="Save">
         <div>
             <div className='border-b-2 w-full mb-6'>
                 <h1 className='text-[#333333] opacity-70 font-semibold text-[14px] pb-3'>Add Job Position</h1>
