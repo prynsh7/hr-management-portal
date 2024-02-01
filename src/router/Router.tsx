@@ -4,8 +4,9 @@ import Home from "../pages/home/home";
 import DashboardLayout from "../layouts/DashbaordLayout";
 import { Loading } from "../components/common/loader/loader";
 import RequireAuth from "../requireAuth";
+import Department from "../pages/master/department";
 
-const Department = lazy(() => import("../pages/master/department"));
+// const Department = lazy(() => import("../pages/master/department"));
 
 type Props = {};
 
@@ -14,11 +15,11 @@ const Router = (props: Props) => {
   return (
     <Routes>
       <Route path="/" element={<DashboardLayout children={<Home />} />} />
-
-      <Route
+      {/* <Route path="/department" element={<DashboardLayout children={<Department />} />} /> */}
+      {/* <Route
         path="/department"
         element={
-          <React.Suspense fallback={<Loading h={"100vh"} />}>
+          <React.Suspense>
             <RequireAuth>
               <DashboardLayout>
                 <Department />
@@ -26,7 +27,7 @@ const Router = (props: Props) => {
             </RequireAuth>
           </React.Suspense>
         }
-      />
+      /> */}
     </Routes>
   );
 };
