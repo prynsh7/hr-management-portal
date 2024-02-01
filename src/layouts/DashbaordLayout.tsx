@@ -60,101 +60,53 @@ const DashboardLayout = (props: Props) => {
     {
       key: "2",
       icon: (
-        <img
-          src={ICONS.SIDEBAR_DASHBOARD}
-          className="w-[18px] h-[18px]"
-          alt=""
-        />
-      ),
-      label: "Headings",
-      path: "/headings",
-    },
-    {
-      key: "3",
-      icon: (
-        <img
-          src={ICONS.SIDEBAR_DASHBOARD}
-          className="w-[18px] h-[18px]"
-          alt=""
-        />
-      ),
-      label: "Form",
-      path: "/form",
-    },
-    {
-      key: "4",
-      icon: (
-        <img
-          src={ICONS.SIDEBAR_DASHBOARD}
-          className="w-[18px] h-[18px]"
-          alt=""
-        />
-      ),
-      label: "Buttons / Badges",
-      path: "/buttons",
-    },
-    {
-      key: "5",
-      icon: (
-        <img
-          src={ICONS.SIDEBAR_DASHBOARD}
-          className="w-[18px] h-[18px]"
-          alt=""
-        />
-      ),
-      label: "Table",
-      path: "/table",
-    },
-    {
-      key: "6",
-      icon: (
-        <img
-          src={ICONS.SIDEBAR_REQUESTS}
-          className="w-[18px] h-[18px]"
-          alt=""
-        />
-      ),
-      label: "Department",
-      path: "/department",
-    },
-
-    {
-      key: "7",
-      icon: (
         <img src={ICONS.SIDEBAR_OFFERS} className="w-[18px] h-[18px]" alt="" />
       ),
-      label: "Offers",
+      label: "Master",
       path: "/offers",
       type: "subMenu",
       children: [
         {
-          key: "7-1",
+          key: "2-1",
           icon: (
             <img
-              src={ICONS.SIDEBAR_DASHBOARD}
+              src={ICONS.SIDEBAR_REQUESTS}
               className="w-[18px] h-[18px]"
               alt=""
             />
           ),
-          label: "Requests",
-          path: "/pending",
+          label: "Department",
+          path: "/department",
         },
         {
-          key: "7-2",
+          key: "2-2",
           icon: (
-            <img
-              src={ICONS.SIDEBAR_DASHBOARD}
-              className="w-[18px] h-[18px]"
-              alt=""
-            />
+            <img src={ICONS.SIDEBAR_OFFERS} className="w-[18px] h-[18px]" alt="" />
           ),
-          label: "Completed",
-          path: "/completed",
+          label: "Job Position",
+          path: "/jobposition",
+        },
+        {
+          key: "2-3",
+          icon: (
+            <img src={ICONS.SIDEBAR_OFFERS} className="w-[18px] h-[18px]" alt="" />
+          ),
+          label: "Documents",
+          path: "/document-category",
+        },
+        {
+          key: "2-4",
+          icon: (
+            <img src={ICONS.SIDEBAR_OFFERS} className="w-[18px] h-[18px]" alt="" />
+          ),
+          label: "Holiday",
+          path: "/holiday",
         },
       ],
     },
+
     {
-      key: "8",
+      key: "3",
       icon: (
         <img src={ICONS.SIDEBAR_PROFILE} className="w-[18px] h-[18px]" alt="" />
       ),
@@ -162,7 +114,7 @@ const DashboardLayout = (props: Props) => {
       path: "/profile",
     },
     {
-      key: "9",
+      key: "4",
       icon: (
         <img
           src={ICONS.SIDEBAR_SETTINGS}
@@ -306,8 +258,8 @@ const DashboardLayout = (props: Props) => {
                   key={item.key}
                   onClick={() => navigate(item.path)}
                   className={`my-1 flex gap-2 py-3 cursor-pointer px-6 hover:bg-bg_light hover:border-l-4 hover:border-primary hover:pl-[16px] ${location.pathname === item.path
-                      ? "bg-bg_light border-l-4 border-primary pl-[16px]"
-                      : "text-black pl-[20px]"
+                    ? "bg-bg_light border-l-4 border-primary pl-[16px]"
+                    : "text-black pl-[20px]"
                     } ${collapsed ? "" : ""}`}
                 >
                   {item.icon}
