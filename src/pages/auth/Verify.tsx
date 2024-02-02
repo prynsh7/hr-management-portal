@@ -2,6 +2,7 @@ import React from 'react'
 import VerifyImage from "../../assets/images/verify.png"
 import Input from '../../components/common/form-fields/input'
 import { useNavigate } from 'react-router-dom';
+import Button from '../../components/common/partial/button';
 
 type Props = {}
 
@@ -17,18 +18,16 @@ function Verify({ }: Props) {
                             <p className='text-[16px] text-[#313131]'>An authentication code has been sent to your email.</p>
                         </div>
                         <div className='mt-[32px]'>
-                            <label className='text-[#1C1B1F] font-semibold text-[14px]' htmlFor="">
-                                Enter Code
-                            </label>
                             <Input
-                                placeholder='Enter your email'
-                                type='email'
+                                label={"Enter Code"}
+                                placeholder='Enter your code'
+                                type='number'
                             />
                         </div>
                         <div className='mt-[24px] text-center'>
-                            <button className='bg-[#515DEF] w-full py-2 text-[#fff] rounded font-semibold'>Verify</button>
-                            <p className='text-[14px] text-[#313131] font-medium mt-[10px]'>Didn’t receive a code?  
-                            <span className='text-[#FF8682] cursor-pointer ml-[4px]'>Resend</span></p>
+                            <Button type="filled" state='primary' className='w-full font-semibold'>Verify</Button>
+                            <p className='text-[14px] text-[#313131] font-medium mt-[10px]'>Didn’t receive a code?
+                                <span className='text-[#FF8682] cursor-pointer ml-[4px]'>Resend</span></p>
                         </div>
                     </div>
                 </div>

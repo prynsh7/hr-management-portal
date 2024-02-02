@@ -6,6 +6,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 import { FaApple } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
+import Button from '../../components/common/partial/button';
 
 type Props = {}
 
@@ -27,19 +28,17 @@ function SignUp({ }: Props) {
                         </div>
                         <div className='grid grid-cols-2 gap-4 mt-[32px]'>
                             <div className='col-span-1'>
-                                <label className='text-[#1C1B1F] font-semibold text-[14px]' htmlFor="">
-                                    First Name <sup className='text-red-500 font-bold'>*</sup>
-                                </label>
                                 <Input
+                                    isRequired
+                                    label={"First Name"}
                                     placeholder='Enter your first name'
                                     type='text'
                                 />
                             </div>
                             <div className='col-span-1'>
-                                <label className='text-[#1C1B1F] font-semibold text-[14px]' htmlFor="">
-                                    Last Name <sup className='text-red-500 font-bold'>*</sup>
-                                </label>
                                 <Input
+                                    isRequired
+                                    label={"Last Name"}
                                     placeholder='Enter your last name'
                                     type='text'
                                 />
@@ -47,38 +46,33 @@ function SignUp({ }: Props) {
                         </div>
                         <div className='grid grid-cols-2 gap-4 mt-[12px]'>
                             <div className='col-span-1'>
-                                <label className='text-[#1C1B1F] font-semibold text-[14px]' htmlFor="">
-                                    Email <sup className='text-red-500 font-bold'>*</sup>
-                                </label>
                                 <Input
+                                    isRequired
+                                    label={"Email"}
                                     placeholder='Enter your email'
                                     type='email'
                                 />
                             </div>
                             <div className='col-span-1'>
-                                <label className='text-[#1C1B1F] font-semibold text-[14px]' htmlFor="">
-                                    Phone Number <sup className='text-red-500 font-bold'>*</sup>
-                                </label>
                                 <Input
+                                    isRequired
+                                    label={"Phone Number"}
                                     placeholder='Enter your phone number'
                                     type='number'
                                 />
                             </div>
                         </div>
                         <div className='mt-[16px]'>
-                            <label className='text-[#1C1B1F] font-semibold text-[14px]' htmlFor="">
-                                Password <sup className='text-red-500 font-bold'>*</sup>
-                            </label>
                             <Input
+                                label={"Password"}
                                 placeholder='Enter your email'
                                 type='password'
                             />
                         </div>
                         <div className='mt-[12px]'>
-                            <label className='text-[#1C1B1F] font-semibold text-[14px]' htmlFor="">
-                                Confirm Password <sup className='text-red-500 font-bold'>*</sup>
-                            </label>
                             <Input
+                                isRequired
+                                label={"Confirm Password"}
                                 placeholder='Enter your password'
                                 type='password'
                             />
@@ -90,9 +84,9 @@ function SignUp({ }: Props) {
                             </div>
                         </div>
                         <div className='mt-[24px] text-center'>
-                            <button className='bg-[#515DEF] w-full py-2 text-[#fff] rounded font-semibold'>Create account</button>
-                            <p className='text-[14px] text-[#313131] font-medium mt-[10px]'>Already have an account? 
-                            <span className='text-[#FF8682] cursor-pointer ml-[4px]' onClick={() => {navigate('/login')}}>Login</span></p>
+                            <Button type="filled" state='primary' className='w-full font-semibold'>Create account</Button>
+                            <p className='text-[14px] text-[#313131] font-medium mt-[10px]'>Already have an account?
+                                <span className='text-[#FF8682] cursor-pointer ml-[4px]' onClick={() => { navigate('/login') }}>Login</span></p>
                         </div>
                         <div className="flex items-center mt-[30px]">
                             <hr className="flex-1 border-t-2 border-[#313131] mx-4 opacity-50" />

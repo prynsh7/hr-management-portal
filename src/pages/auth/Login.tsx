@@ -6,6 +6,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 import { FaApple } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
+import Button from '../../components/common/partial/button';
 
 type Props = {}
 
@@ -21,19 +22,17 @@ function Login({ }: Props) {
                             <p className='text-[16px] text-[#313131]'>Login to access your account</p>
                         </div>
                         <div className='mt-[32px]'>
-                            <label className='text-[#1C1B1F] font-semibold text-[14px]' htmlFor="">
-                                Email <sup className='text-red-500 font-bold'>*</sup>
-                            </label>
                             <Input
+                                isRequired
+                                label={"Email"}
                                 placeholder='Enter your email'
                                 type='text'
                             />
                         </div>
                         <div className='mt-[16px]'>
-                            <label className='text-[#1C1B1F] font-semibold text-[14px]' htmlFor="">
-                                Password <sup className='text-red-500 font-bold'>*</sup>
-                            </label>
                             <Input
+                                isRequired
+                                label={"Password"}
                                 placeholder='Enter your password'
                                 type='text'
                             />
@@ -44,13 +43,13 @@ function Login({ }: Props) {
                                 <p className='text-[14px] text-[#313131] font-medium'>Remember me</p>
                             </div>
                             <div>
-                                <p className='cursor-pointer text-[14px] text-[#FF8682] font-medium' onClick={() => {navigate('/forgotpassword')}}>Forgot Password</p>
+                                <p className='cursor-pointer text-[14px] text-[#FF8682] font-medium' onClick={() => { navigate('/forgotpassword') }}>Forgot Password</p>
                             </div>
                         </div>
                         <div className='mt-[24px] text-center'>
-                            <button className='bg-[#515DEF] w-full py-2 text-[#fff] rounded font-semibold'>Login</button>
-                            <p className='text-[14px] text-[#313131] font-medium mt-[10px]'>Don’t have an account? 
-                            <span className='text-[#FF8682] cursor-pointer ml-[4px]' onClick={() => {navigate('/signup')}}>Sign up</span></p>
+                            <Button type="filled" state='primary' className='w-full font-semibold'>Login</Button>
+                            <p className='text-[14px] text-[#313131] font-medium mt-[10px]'>Don’t have an account?
+                                <span className='text-[#FF8682] cursor-pointer ml-[4px]' onClick={() => { navigate('/signup') }}>Sign up</span></p>
                         </div>
                         <div className="flex items-center mt-[30px]">
                             <hr className="flex-1 border-t-2 border-[#313131] mx-4 opacity-50" />

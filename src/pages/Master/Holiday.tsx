@@ -4,14 +4,16 @@ import Heading from "../../components/common/partial/heading";
 import Button from "../../components/common/partial/button";
 import Table from "../../components/common/table/table";
 import Breadcrumb from "../../components/common/bredcrumb";
+import Header from "../../components/common/header/header";
+import moment from "moment";
 
 
 type Props = {};
 interface DataType {
   key: React.Key;
   name: string;
-  fromDate: string;
-  toDate: string;
+  fromdate: string;
+  todate: string;
   description: string;
 }
 
@@ -20,96 +22,109 @@ const Holiday = (props: Props) => {
   const handleCloseModal = () => setIsOpen(false);
   const handleOpenModal = () => setIsOpen(true);
 
-  const dataSource =[
-    
+  const dataSource = [
     {
-        name:"nitin",
-        fromdate:"14/04/2024",
-        todate:"14/04/2024",
-        description:"going for trip"
+      name: "John",
+      fromdate: "15/04/2024",
+      todate: "18/04/2024",
+      description: "Business trip to Paris"
     },
     {
-        name:"nitin",
-        fromdate:"14/04/2024",
-        todate:"14/04/2024",
-        description:"going for trip"
+      name: "Alice",
+      fromdate: "20/04/2024",
+      todate: "25/04/2024",
+      description: "Vacation in Italy"
     },
     {
-        name:"nitin",
-        fromdate:"14/04/2024",
-        todate:"14/04/2024",
-        description:"going for trip"
+      name: "Bob",
+      fromdate: "05/05/2024",
+      todate: "10/05/2024",
+      description: "Attending a conference in London"
     },
     {
-        name:"nitin",
-        fromdate:"14/04/2024",
-        todate:"14/04/2024",
-        description:"going for trip"
+      name: "Eva",
+      fromdate: "12/05/2024",
+      todate: "15/05/2024",
+      description: "Exploring New York City"
     },
     {
-        name:"nitin",
-        fromdate:"14/04/2024",
-        todate:"14/04/2024",
-        description:"going for trip"
+      name: "Chris",
+      fromdate: "22/05/2024",
+      todate: "28/05/2024",
+      description: "Family trip to Barcelona"
     },
     {
-        name:"nitin",
-        fromdate:"14/04/2024",
-        todate:"14/04/2024",
-        description:"going for trip"
+      name: "Sophie",
+      fromdate: "01/06/2024",
+      todate: "05/06/2024",
+      description: "Attending a workshop in Tokyo"
     },
     {
-        name:"nitin",
-        fromdate:"14/04/2024",
-        todate:"14/04/2024",
-        description:"going for trip"
+      name: "Michael",
+      fromdate: "08/06/2024",
+      todate: "12/06/2024",
+      description: "Beach vacation in Bali"
     },
     {
-        name:"nitin",
-        fromdate:"14/04/2024",
-        todate:"14/04/2024",
-        description:"going for trip"
+      name: "Emma",
+      fromdate: "17/06/2024",
+      todate: "20/06/2024",
+      description: "Road trip in California"
     },
     {
-        name:"nitin",
-        fromdate:"14/04/2024",
-        todate:"14/04/2024",
-        description:"going for trip"
+      name: "Daniel",
+      fromdate: "25/06/2024",
+      todate: "30/06/2024",
+      description: "Hiking in the Swiss Alps"
     },
     {
-        name:"nitin",
-        fromdate:"14/04/2024",
-        todate:"14/04/2024",
-        description:"going for trip"
+      name: "Olivia",
+      fromdate: "05/07/2024",
+      todate: "10/07/2024",
+      description: "Safari adventure in Africa"
     },
     {
-        name:"nitin",
-        fromdate:"14/04/2024",
-        todate:"14/04/2024",
-        description:"going for trip"
-    },
-    
-  ]
-  const columns =[
-    {
-        title: "Name",
-        dataIndex: "name",
-        key: "name",
+      name: "William",
+      fromdate: "15/07/2024",
+      todate: "20/07/2024",
+      description: "City tour in Amsterdam"
     },
     {
-        title: "From",
-        dataIndex: "fromdate",
-        key: "fromdate",
+      name: "Isabella",
+      fromdate: "25/07/2024",
+      todate: "30/07/2024",
+      description: "Cruise vacation in the Caribbean"
+    },
+  ];
+
+  const columns = [
+    {
+      title: "Name",
+      dataIndex: "name",
+      key: "name",
+      sorter: (a: DataType, b: DataType) => a.name.localeCompare(b.name),
+      sortDirections: ['ascend', 'descend'],
     },
     {
-        title: "To",
-        dataIndex: "todate",
-        key: "todate",
-    },
+      title: "From",
+      dataIndex: "fromdate",
+      key: "fromdate",
+      sorter: (a: DataType, b: DataType) =>
+          moment(a.fromdate, "DD/MM/YYYY").unix() - moment(b.fromdate, "DD/MM/YYYY").unix(),
+      sortDirections: ["ascend", "descend"],
+  },
+  {
+      title: "To",
+      dataIndex: "todate",
+      key: "todate",
+      sorter: (a: DataType, b: DataType) =>
+          moment(a.todate, "DD/MM/YYYY").unix() - moment(b.todate, "DD/MM/YYYY").unix(),
+      sortDirections: ["ascend", "descend"],
+  },
     {
-        title: "Description",
-        dataIndex: "description",
-        key: "description",
+      title: "Description",
+      dataIndex: "description",
+      key: "description",
     },
   ]
   const breadcrumbItems = ["Home", "Holiday", "jkhhx"];
@@ -121,13 +136,13 @@ const Holiday = (props: Props) => {
         onClose={handleCloseModal}
         onSubmit={handleCloseModal}
       />
-
-      <Heading type="h4">Holiday</Heading>
-      <Breadcrumb items={breadcrumbItems} />
+      <Header
+        heading="Holiday"
+        breadcrumbItems={breadcrumbItems}
+        primaryActionText="Add +"
+        onPrimaryActionClick={handleOpenModal}
+      />
       <div className="mt-6 flex flex-col items-end">
-        <Button type="filled" className="mb-4" onClick={handleOpenModal} state="primary">
-          Add +
-        </Button>
         <Table className="w-full" dataSource={dataSource} columns={columns} />
       </div>
     </div>

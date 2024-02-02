@@ -19,16 +19,19 @@ const DepartmentModal = ({ isOpen, onSubmit, onClose }: any) => {
       </div>
       <div className="flex flex-col gap-3">
         <div>
-          <label className="text-[#333333] opacity-70 font-semibold text-[14px]">
-            Enter Department Name
-          </label>
-          <Input placeholder="Name" type="text" />
+          <Input
+            label={"Enter Department Name"}
+            placeholder="Name"
+            type="text"
+          />
         </div>
         <div>
-          <label className="text-[#333333] opacity-70 font-semibold text-[14px]">
-            Enter Code
-          </label>
-          <Input placeholder="Enter code" type="number" />
+          <Input
+            isRequired
+            label={"Enter code"}
+            placeholder="Enter code"
+            type="number"
+          />
         </div>
       </div>
     </Modal>

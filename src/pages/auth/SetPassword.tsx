@@ -2,6 +2,7 @@ import React from 'react'
 import forgotImage from "../../assets/images/forgot.png"
 import Input from '../../components/common/form-fields/input'
 import { useNavigate } from 'react-router-dom';
+import Button from '../../components/common/partial/button';
 
 type Props = {}
 
@@ -17,25 +18,21 @@ function SetPassword({ }: Props) {
                             <p className='text-[16px] text-[#313131]'>Your previous password has been reseted. Please set a <br /> new password for your account.</p>
                         </div>
                         <div className='mt-[32px]'>
-                            <label className='text-[#1C1B1F] font-semibold text-[14px]' htmlFor="">
-                                Create Password
-                            </label>
                             <Input
+                                label={"Create Password"}
                                 placeholder='Enter your new password'
                                 type='password'
                             />
                         </div>
                         <div className='mt-[16px]'>
-                            <label className='text-[#1C1B1F] font-semibold text-[14px]' htmlFor="">
-                                Re-enter Password
-                            </label>
                             <Input
+                                label={"Re-enter Password"}
                                 placeholder='Re-enter your new password'
                                 type='password'
                             />
                         </div>
                         <div className='mt-[24px] text-center'>
-                            <button className='bg-[#515DEF] w-full py-2 text-[#fff] rounded font-semibold'>Set password</button>
+                            <Button type="filled" state='primary' className='w-full font-semibold'>Set password</Button>
                         </div>
                     </div>
                 </div>

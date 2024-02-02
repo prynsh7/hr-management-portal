@@ -185,6 +185,7 @@ const DashboardLayout = (props: Props) => {
   const navigate = useNavigate();
 
   const handleSignout = () => {
+    // handleLogout();
     navigate("/admin/login");
   };
 
@@ -242,7 +243,6 @@ const DashboardLayout = (props: Props) => {
                 <Menu.SubMenu key={item.key} title={item.label} icon={item.icon}>
                   {item.children.map((subItem) => (
                     <Menu.Item key={subItem.key} onClick={() => navigate(subItem.path)}>
-                      {/* Updated: Wrapping icon and text in a div with a flex class */}
                       <div className="flex items-center gap-2">
                         {subItem.icon}
                         <div className="text-sm truncate">{subItem.label}</div>

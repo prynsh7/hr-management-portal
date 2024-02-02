@@ -1,5 +1,6 @@
 import React from 'react'
 import { Table as Tab } from 'antd'
+import type { TableColumnsType, TableProps } from 'antd';
 
 type Props = {}
 
