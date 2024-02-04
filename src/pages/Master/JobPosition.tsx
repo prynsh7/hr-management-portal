@@ -120,7 +120,7 @@ function JobPosition(props: Props) {
         onSubmit={handleCloseModal}
       />
 
-      <Heading type="h4">Job Position</Heading>
+      <Heading type="h4">Employee</Heading>
       <Breadcrumb items={breadcrumbItems} />
       <div className="mt-6 flex flex-col items-end">
         <Button type="filled" className="mb-4" onClick={handleOpenModal} state="primary">

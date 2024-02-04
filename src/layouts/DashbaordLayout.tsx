@@ -147,6 +147,14 @@ const DashboardLayout = (props: Props) => {
       icon: (
         <img src={ICONS.SIDEBAR_OFFERS} className="w-[18px] h-[18px]" alt="" />
       ),
+      label: "Employee",
+      path: "/employee",
+    },
+    {
+      key: "2",
+      icon: (
+        <img src={ICONS.SIDEBAR_OFFERS} className="w-[18px] h-[18px]" alt="" />
+      ),
       label: "Offers",
       path: "/offers",
       type: "subMenu",

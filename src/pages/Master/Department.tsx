@@ -95,7 +95,7 @@ const Department = (props: Props) => {
       render: (record: DataType) => (
         <div>
           <Button state="primary" className="border" onClick={handleOpenModal}>
-            <div className="flex gap-1 items-center"><FaRegEdit size={17}/> Edit</div>
+            <div className="flex gap-1 items-center"><FaRegEdit size={17}/></div>
           </Button>
         </div>
       ),
