@@ -7,6 +7,8 @@ import JobPositionModal from "../../components/master/jobposition-modal";
 import Breadcrumb from "../../components/common/bredcrumb";
 import { FaRegEdit } from "react-icons/fa";
 import Header from "../../components/common/header/header";
+import { FaPlus } from "react-icons/fa6";
+
 
 type Props = {};
 interface DataType {
@@ -126,7 +128,8 @@ function JobPosition(props: Props) {
       <Header
         heading="Job Position"
         breadcrumbItems={breadcrumbItems}
-        primaryActionText="Add +"
+        icon={<FaPlus/>}
+        primaryActionText="Add"
         onPrimaryActionClick={handleOpenModal}
       />
       <div className="mt-6 flex flex-col items-end">

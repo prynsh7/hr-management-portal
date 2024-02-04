@@ -4,7 +4,7 @@ import Heading from '../../components/common/partial/heading';
 import Button from '../../components/common/partial/button';
 import Table from '../../components/common/table/table';
 import Breadcrumb from '../../components/common/bredcrumb';
-import { FaRegEdit } from "react-icons/fa";
+import { FaPlus, FaRegEdit } from "react-icons/fa";
 import Header from '../../components/common/header/header';
 
 type Props = {}
@@ -117,7 +117,7 @@ const DocumentCategory = (props: Props) => {
     ]
 
 
-    const breadcrumbItems = ["Home", "Document Category", "smmmhx"];
+    const breadcrumbItems = ["Home", "Document Category"];
 
     return (
         <div>
@@ -125,7 +125,8 @@ const DocumentCategory = (props: Props) => {
             <Header
                 heading="Document Category"
                 breadcrumbItems={breadcrumbItems}
-                primaryActionText="Add +"
+                icon={<FaPlus />}
+                primaryActionText="Add"
                 onPrimaryActionClick={handleOpenModal}
             />
             <div className='mt-6 flex flex-col items-end'>

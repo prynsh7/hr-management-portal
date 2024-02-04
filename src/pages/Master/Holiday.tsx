@@ -6,6 +6,7 @@ import Table from "../../components/common/table/table";
 import Breadcrumb from "../../components/common/bredcrumb";
 import Header from "../../components/common/header/header";
 import moment from "moment";
+import { FaPlus } from "react-icons/fa";
 
 
 type Props = {};
@@ -110,24 +111,24 @@ const Holiday = (props: Props) => {
       dataIndex: "fromdate",
       key: "fromdate",
       sorter: (a: DataType, b: DataType) =>
-          moment(a.fromdate, "DD/MM/YYYY").unix() - moment(b.fromdate, "DD/MM/YYYY").unix(),
+        moment(a.fromdate, "DD/MM/YYYY").unix() - moment(b.fromdate, "DD/MM/YYYY").unix(),
       sortDirections: ["ascend", "descend"],
-  },
-  {
+    },
+    {
       title: "To",
       dataIndex: "todate",
       key: "todate",
       sorter: (a: DataType, b: DataType) =>
-          moment(a.todate, "DD/MM/YYYY").unix() - moment(b.todate, "DD/MM/YYYY").unix(),
+        moment(a.todate, "DD/MM/YYYY").unix() - moment(b.todate, "DD/MM/YYYY").unix(),
       sortDirections: ["ascend", "descend"],
-  },
+    },
     {
       title: "Description",
       dataIndex: "description",
       key: "description",
     },
   ]
-  const breadcrumbItems = ["Home", "Holiday", "jkhhx"];
+  const breadcrumbItems = ["Home", "Holiday"];
 
   return (
     <div>
@@ -139,7 +140,8 @@ const Holiday = (props: Props) => {
       <Header
         heading="Holiday"
         breadcrumbItems={breadcrumbItems}
-        primaryActionText="Add +"
+        icon={<FaPlus />}
+        primaryActionText="Add"
         onPrimaryActionClick={handleOpenModal}
       />
       <div className="mt-6 flex flex-col items-end">

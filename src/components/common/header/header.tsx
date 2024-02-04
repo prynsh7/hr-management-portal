@@ -8,9 +8,10 @@ interface HeaderProps {
     breadcrumbItems: string[];
     primaryActionText: string;
     onPrimaryActionClick: () => void;
+    icon?: React.ReactNode;
 }
 
-const Header: React.FC<HeaderProps> = ({ heading, breadcrumbItems, primaryActionText, onPrimaryActionClick }) => {
+const Header: React.FC<HeaderProps> = ({ heading, breadcrumbItems, primaryActionText, onPrimaryActionClick, icon}) => {
     return (
         <div className='flex justify-between items-center'>
             <div>
@@ -19,13 +20,13 @@ const Header: React.FC<HeaderProps> = ({ heading, breadcrumbItems, primaryAction
             </div>
             <Button
                 type="filled"
-                className="px-[24px] font-semibold"
+                className="px-[24px] py-[6px] rounded"
                 onClick={onPrimaryActionClick}
                 state="primary"
             >
+                {icon && <span className="mr-2">{icon}</span>} 
                 {primaryActionText}
             </Button>
-
         </div>
     );
 };

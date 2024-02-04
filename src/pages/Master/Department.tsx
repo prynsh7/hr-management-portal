@@ -6,7 +6,7 @@ import Heading from "../../components/common/partial/heading";
 import DepartmentModal from "../../components/master/documentcatgory-modal";
 import Input from "../../components/common/form-fields/input";
 import Breadcrumb from "../../components/common/bredcrumb";
-import { FaRegEdit } from "react-icons/fa";
+import { FaPlus, FaRegEdit } from "react-icons/fa";
 import Header from "../../components/common/header/header";
 
 interface DataType {
@@ -111,11 +111,12 @@ const Department = () => {
         onClose={handleCloseModal}
         onSubmit={handleCloseModal}
       />
-
+      
       <Header
-        heading="Job Position"
+        heading="Department"
         breadcrumbItems={breadcrumbItems}
-        primaryActionText="Add +"
+        icon={<FaPlus />}
+        primaryActionText="Add"
         onPrimaryActionClick={handleOpenModal}
       />
 
