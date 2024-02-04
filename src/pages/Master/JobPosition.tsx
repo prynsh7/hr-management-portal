@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "../../components/common/partial/button";
 import Heading from "../../components/common/partial/heading";
 import Table from "../../components/common/table/table";
-import StatusToggler from "../../components/common/partial/status-toggler";
+import Badges from "../../components/common/partial/badges";
 import JobPositionModal from "../../components/master/jobposition-modal";
 import Breadcrumb from "../../components/common/bredcrumb";
 import { FaRegEdit } from "react-icons/fa";
@@ -80,7 +80,7 @@ function JobPosition(props: Props) {
       title: "Status",
       render: (record: DataType) => (
         <div>
-          <StatusToggler />
+          <Badges />
         </div>
       ),
     },
@@ -114,7 +114,7 @@ function JobPosition(props: Props) {
       ),
     },
   ];
-  const breadcrumbItems = ["Home", "Job Position", "jkhhx"];
+  const breadcrumbItems = ["Home", "Job Position"];
 
   return (
     <div>
