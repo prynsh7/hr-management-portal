@@ -4,11 +4,11 @@ import DashboardLayout from "../layouts/DashbaordLayout";
 import { Loading } from "../components/common/loader/loader";
 import RequireAuth from "../requireAuth";
 import JobPosition from "../pages/master/JobPosition";
-import Home from "../pages/home/home";
+import Home from "../pages/home/Home";
 import DocumentCategory from "../pages/master/DocumentCategory";
 import Holiday from "../pages/master/Holiday";
 import Employee from "../pages/master/Employee";
-import EmployeeDetails from '../pages/employee/employee'
+import EmployeeDetails from "../pages/employee/employee";
 import Department from "../pages/master/Department";
 import Login from "../pages/auth/Login";
 import SignUp from "../pages/auth/SignUp";
@@ -135,7 +135,7 @@ const Router = (props: Props) => {
           <React.Suspense fallback={<Loading h={"100vh"} />}>
             <RequireAuth>
               <DashboardLayout>
-                <Employee/>
+                <Employee />
               </DashboardLayout>
             </RequireAuth>
           </React.Suspense>
@@ -147,7 +147,7 @@ const Router = (props: Props) => {
           <React.Suspense fallback={<Loading h={"100vh"} />}>
             <RequireAuth>
               <DashboardLayout>
-                <EmployeeDetails/>
+                <EmployeeDetails />
               </DashboardLayout>
             </RequireAuth>
           </React.Suspense>

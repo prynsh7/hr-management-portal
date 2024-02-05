@@ -6,7 +6,7 @@ import Button from "../../components/common/partial/button";
 import { useNavigate } from "react-router-dom";
 import { Switch } from "antd";
 import { FaRegEdit } from "react-icons/fa";
-import StatusToggler from "../../components/common/partial/status-toggler";
+// import StatusToggler from "../../components/common/partial/status-toggler";
 import img from "../../assets/images/auth.png";
 
 type Props = {};
@@ -103,7 +103,7 @@ const Employee = (props: Props) => {
       title: "Status",
       render: (record: DataType) => (
         <div>
-          <StatusToggler />
+          {/* <StatusToggler /> */}
         </div>
       ),
     },
