@@ -14,28 +14,25 @@ const DepartmentModal = ({ isOpen, onSubmit, onClose }: any) => {
                 </div>
                 <div>
                     <div className='mb-3'>
-                        <label className='text-[#333333] opacity-70 font-semibold text-[14px]' htmlFor="">
-                            Title <sup className='text-red-500 font-bold'>*</sup>
-                        </label>
                         <Input
+                            label={"Title"}
                             placeholder='Title'
                             type='text'
+                            isRequired
                         />
                     </div>
                     <div className='mb-3'>
-                        <label className='text-[#333333] opacity-70 font-semibold text-[14px]' htmlFor="">
-                            Code <sup className='text-red-500 font-bold'>*</sup>
-                        </label>
                         <Input
                             placeholder='Code'
                             type='text'
+                            label={"Code"}
+                            isRequired
                         />
                     </div>
                     <div className='flex flex-col'>
-                        <label className='text-[#333333] opacity-70 font-semibold text-[14px]' htmlFor="remarks">
-                            Description
-                        </label>
-                        <InputArea />
+                        <InputArea
+                            label={"Description"}
+                        />
                     </div>
                 </div>
             </div>

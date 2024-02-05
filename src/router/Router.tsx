@@ -4,7 +4,7 @@ import DashboardLayout from "../layouts/DashbaordLayout";
 import { Loading } from "../components/common/loader/loader";
 import RequireAuth from "../requireAuth";
 import JobPosition from "../pages/master/JobPosition";
-import Home from "../pages/home/Home";
+import Home from "../pages/home/home";
 import DocumentCategory from "../pages/master/DocumentCategory";
 import Holiday from "../pages/master/Holiday";
 import Employee from "../pages/master/Employee";

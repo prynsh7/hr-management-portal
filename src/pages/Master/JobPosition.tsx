@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import Button from "../../components/common/partial/button";
 import Heading from "../../components/common/partial/heading";
 import Table from "../../components/common/table/table";
-import StatusToggler from "../../components/common/partial/status-toggler";
+import Badges from "../../components/common/partial/badges";
 import JobPositionModal from "../../components/master/jobposition-modal";
 import Breadcrumb from "../../components/common/bredcrumb";
 import { FaRegEdit } from "react-icons/fa";
+import Header from "../../components/common/header/header";
+import { FaPlus } from "react-icons/fa6";
+
 
 type Props = {};
 interface DataType {
@@ -23,63 +26,63 @@ function JobPosition(props: Props) {
 
   const dataSource = [
     {
-      title: "hhhh",
-      code: 4456666,
-      description: "hhhhheheeheheeh",
+      title: "Software Engineer",
+      code: 101,
+      description: "Developing and maintaining software applications.",
     },
     {
-      title: "hhhh",
-      code: 4456666,
-      description: "hhhhheheeheheeh",
+      title: "Product Manager",
+      code: 202,
+      description: "Leading product development and strategy.",
     },
     {
-      title: "hhhh",
-      code: 4456666,
-      description: "hhhhheheeheheeh",
+      title: "Data Scientist",
+      code: 303,
+      description: "Analyzing and interpreting complex data sets.",
     },
     {
-      title: "hhhh",
-      code: 4456666,
-
-      description: "hhhhheheeheheeh",
+      title: "UX/UI Designer",
+      code: 404,
+      description: "Creating user-centered designs for digital experiences.",
     },
     {
-      title: "hhhh",
-      code: 4456666,
-      description: "hhhhheheeheheeh",
+      title: "Marketing Specialist",
+      code: 505,
+      description: "Planning and executing marketing campaigns.",
     },
     {
-      title: "hhhh",
-      code: 4456666,
-      description: "hhhhheheeheheeh",
+      title: "Network Administrator",
+      code: 606,
+      description: "Managing and maintaining computer networks.",
     },
     {
-      title: "hhhh",
-      code: 4456666,
-      description: "hhhhheheeheheeh",
+      title: "Financial Analyst",
+      code: 707,
+      description: "Analyzing financial data and trends.",
     },
     {
-      title: "hhhh",
-      code: 4456666,
-      description: "hhhhheheeheheeh",
+      title: "Human Resources Manager",
+      code: 808,
+      description: "Overseeing HR functions and employee relations.",
     },
     {
-      title: "hhhh",
-      code: 4456666,
-      description: "hhhhheheeheheeh",
+      title: "Sales Representative",
+      code: 909,
+      description: "Selling products or services to clients.",
     },
     {
-      title: "hhhh",
-      code: 4456666,
-      description: "hhhhheheeheheeh",
+      title: "Customer Support Specialist",
+      code: 1010,
+      description: "Assisting customers with product-related inquiries.",
     },
   ];
+
   const columns = [
     {
       title: "Status",
       render: (record: DataType) => (
         <div>
-          <StatusToggler />
+          <Badges />
         </div>
       ),
     },
@@ -87,11 +90,15 @@ function JobPosition(props: Props) {
       title: "Title",
       dataIndex: "title",
       key: "title",
+      sorter: (a: DataType, b: DataType) => a.title.localeCompare(b.title),
+      sortDirections: ['ascend', 'descend'],
     },
     {
       title: "Code",
       dataIndex: "code",
       key: "code",
+      sorter: (a: DataType, b: DataType) => Number(a.code) - Number(b.code),
+      sortDirections: ['ascend', 'descend'],
     },
     {
       title: "Description",
@@ -103,13 +110,13 @@ function JobPosition(props: Props) {
       render: (record: DataType) => (
         <div>
           <Button state="primary" className="border" onClick={handleOpenModal}>
-            <div className="flex gap-2 items-center"><FaRegEdit size={17}/></div>
+            <div className="flex gap-2 items-center"><FaRegEdit size={17} /></div>
           </Button>
         </div>
       ),
     },
   ];
-  const breadcrumbItems = ["Home", "Job Position", "jkhhx"];
+  const breadcrumbItems = ["Home", "Job Position"];
 
   return (
     <div>
@@ -118,18 +125,14 @@ function JobPosition(props: Props) {
         onClose={handleCloseModal}
         onSubmit={handleCloseModal}
       />
-
-      <Heading type="h4">Employee</Heading>
-      <Breadcrumb items={breadcrumbItems} />
+      <Header
+        heading="Job Position"
+        breadcrumbItems={breadcrumbItems}
+        icon={<FaPlus/>}
+        primaryActionText="Add"
+        onPrimaryActionClick={handleOpenModal}
+      />
       <div className="mt-6 flex flex-col items-end">
-        <Button
-          type="filled"
-          className="mb-4"
-          onClick={handleOpenModal}
-          state="primary"
-        >
-          Add +
-        </Button>
         <Table className="w-full" dataSource={dataSource} columns={columns} />
       </div>
     </div>

@@ -5,6 +5,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 import { FaApple } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
+import Button from '../../components/common/partial/button';
 
 type Props = {}
 
@@ -18,19 +19,18 @@ function ForgotPassword({ }: Props) {
                         <div>
                             <h3 className='text-[40px] font-bold text-[#313131]'>Forgot your password?</h3>
                             <p className='text-[16px] text-[#313131]'>Don’t worry, happens to all of us. Enter your email below to <br />
-                             recover your password</p>
+                                recover your password</p>
                         </div>
                         <div className='mt-[32px]'>
-                            <label className='text-[#1C1B1F] font-semibold text-[14px]' htmlFor="">
-                                Email <sup className='text-red-500 font-bold'>*</sup>
-                            </label>
                             <Input
+                                isRequired
+                                label={"Email"}
                                 placeholder='Enter your email'
                                 type='email'
                             />
                         </div>
                         <div className='mt-[24px] text-center'>
-                            <button className='bg-[#515DEF] w-full py-2 text-[#fff] rounded font-semibold'>Submit</button>
+                            <Button type="filled" state='primary' className='w-full font-semibold'>Submit</Button>
                         </div>
                         <div className="flex items-center mt-[30px]">
                             <hr className="flex-1 border-t-2 border-[#313131] mx-4 opacity-50" />

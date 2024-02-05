@@ -42,9 +42,9 @@ const Input = ({
   return (
     <>
       {label && (
-        <label className="text-[#1C1B1F] font-semibold text-[14px]" htmlFor="">
+        <label className="text-[#333333] opacity-70  font-semibold text-[14px]" htmlFor="">
           {label}{" "}
-          {isRequired && <sup className="text-red-500 font-bold">*</sup>}
+          {isRequired && <span className="text-red-500 font-bold">*</span>}
         </label>
       )}
 
