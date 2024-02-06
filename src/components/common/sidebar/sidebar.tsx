@@ -105,8 +105,8 @@ function Sidebar() {
             icon: (
                 <img src={ICONS.SIDEBAR_PROFILE} className="w-[18px] h-[18px]" alt="" />
             ),
-            label: "Profile",
-            path: "/profile",
+            label: "Employee",
+            path: "/employee",
         },
         {
             key: "4",
@@ -129,7 +129,7 @@ function Sidebar() {
     };
     return (
         <div>
-            <div>
+            <div className="border-r">
                 <Menu
                     onClick={onClickMenuItem}
                     defaultSelectedKeys={["1"]}
