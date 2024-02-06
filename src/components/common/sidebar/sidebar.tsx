@@ -129,7 +129,7 @@ function Sidebar() {
     };
     return (
         <div>
-            <div className="border-r">
+            <div className="border-r border-r-slate-200">
                 <Menu
                     onClick={onClickMenuItem}
                     defaultSelectedKeys={["1"]}

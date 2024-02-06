@@ -12,8 +12,7 @@ const Education: React.FC<EducationProps> = ({ setTab }) => {
   const [isOpen, setIsOpen] = useState(false);
   const handleCloseModal = () => setIsOpen(false);
   const handleOpenModal = () => setIsOpen(true);
-
-
+  
   return (
     <div className='border rounded-xl mt-6 flex flex-col justify-end items-end'>
       <EmployeEducationModal

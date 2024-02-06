@@ -10,7 +10,7 @@ const Topbar = (props: Props) => {
 
   return (
     <div
-      className={`bg-[#fff] relative flex justify-between items-center py-3 w-full h-[80px] z-10`}
+      className={`bg-[#fff] relative flex justify-between items-center py-3 w-full h-[80px] z-10 border-b border-b-slate-200`}
     >
       <div></div>
       <div
