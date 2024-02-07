@@ -15,6 +15,8 @@ import SignUp from "../pages/auth/SignUp";
 import ForgotPassword from "../pages/auth/ForgotPassword";
 import Verify from "../pages/auth/Verify";
 import SetPassword from "../pages/auth/SetPassword";
+import Leave from "../pages/master/Leave";
+import Entitlement from "../pages/master/Entitlement";
 
 // const Department = lazy(() => import("../pages/master/Department"));
 
@@ -148,6 +150,30 @@ const Router = (props: Props) => {
             <RequireAuth>
               <DashboardLayout>
                 <EmployeeDetails />
+              </DashboardLayout>
+            </RequireAuth>
+          </React.Suspense>
+        }
+      />
+      <Route
+        path="/leave"
+        element={
+          <React.Suspense fallback={<Loading h={"100vh"} />}>
+            <RequireAuth>
+              <DashboardLayout>
+                <Leave />
+              </DashboardLayout>
+            </RequireAuth>
+          </React.Suspense>
+        }
+      />
+      <Route
+        path="/Entitlement"
+        element={
+          <React.Suspense fallback={<Loading h={"100vh"} />}>
+            <RequireAuth>
+              <DashboardLayout>
+                <Entitlement />
               </DashboardLayout>
             </RequireAuth>
           </React.Suspense>
