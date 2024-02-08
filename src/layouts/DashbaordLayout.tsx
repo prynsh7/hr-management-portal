@@ -10,7 +10,6 @@ type Props = {
 const DashboardLayout = (props: Props) => {
   const [authState, setAuthState] = useState(true);
   const location = useLocation();
-  console.log(location.pathname);
   return (
     <div className="flex h-screen overflow-hidden">
       <Sidebar />

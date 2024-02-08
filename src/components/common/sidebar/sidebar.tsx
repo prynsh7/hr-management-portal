@@ -117,8 +117,47 @@ function Sidebar() {
                     alt=""
                 />
             ),
-            label: "Settings",
-            path: "/settings",
+            label: "Payroll",
+            path: "/payroll",
+            type: "subMenu",
+            children: [
+                {
+                    key: "4-1",
+                    icon: (
+                        <img
+                            src={ICONS.SIDEBAR_REQUESTS}
+                            className="w-[18px] h-[18px]"
+                            alt=""
+                        />
+                    ),
+                    label: "Earnings",
+                    path: "/earnings",
+                },
+                {
+                    key: "4-2",
+                    icon: (
+                        <img src={ICONS.SIDEBAR_OFFERS} className="w-[18px] h-[18px]" alt="" />
+                    ),
+                    label: "Deductions",
+                    path: "/deductions",
+                },
+                {
+                    key: "4-3",
+                    icon: (
+                        <img src={ICONS.SIDEBAR_OFFERS} className="w-[18px] h-[18px]" alt="" />
+                    ),
+                    label: "Bonus",
+                    path: "/bonus",
+                },
+                {
+                    key: "4-4",
+                    icon: (
+                        <img src={ICONS.SIDEBAR_OFFERS} className="w-[18px] h-[18px]" alt="" />
+                    ),
+                    label: "Saturatory Contributions",
+                    path: "/saturatory_contributions",
+                },
+            ],
         },
     ];
     const navigate = useNavigate();
@@ -133,7 +172,7 @@ function Sidebar() {
                 <Menu
                     onClick={onClickMenuItem}
                     defaultSelectedKeys={["1"]}
-                    defaultOpenKeys={["sub1"]} // Open the "sub1" submenu by default
+                    defaultOpenKeys={["sub1"]}
                     mode="inline"
                     style={{
                         width: !collapsed ? "260px" : "64px",

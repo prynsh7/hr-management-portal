@@ -15,6 +15,10 @@ import SignUp from "../pages/auth/SignUp";
 import ForgotPassword from "../pages/auth/ForgotPassword";
 import Verify from "../pages/auth/Verify";
 import SetPassword from "../pages/auth/SetPassword";
+import Earnings from "../pages/payroll/Earnings";
+import Deductions from "../pages/payroll/Deductions";
+import Bonus from "../pages/payroll/Bonus";
+import SaturatoryContributions from "../pages/payroll/SaturatoryContributions";
 
 // const Department = lazy(() => import("../pages/master/Department"));
 
@@ -148,6 +152,54 @@ const Router = (props: Props) => {
             <RequireAuth>
               <DashboardLayout>
                 <EmployeeDetails />
+              </DashboardLayout>
+            </RequireAuth>
+          </React.Suspense>
+        }
+      />
+      <Route
+        path="/earnings"
+        element={
+          <React.Suspense fallback={<Loading h={"100vh"} />}>
+            <RequireAuth>
+              <DashboardLayout>
+                <Earnings />
+              </DashboardLayout>
+            </RequireAuth>
+          </React.Suspense>
+        }
+      />
+      <Route
+        path="/deductions"
+        element={
+          <React.Suspense fallback={<Loading h={"100vh"} />}>
+            <RequireAuth>
+              <DashboardLayout>
+                <Deductions />
+              </DashboardLayout>
+            </RequireAuth>
+          </React.Suspense>
+        }
+      />
+      <Route
+        path="/bonus"
+        element={
+          <React.Suspense fallback={<Loading h={"100vh"} />}>
+            <RequireAuth>
+              <DashboardLayout>
+                <Bonus />
+              </DashboardLayout>
+            </RequireAuth>
+          </React.Suspense>
+        }
+      />
+      <Route
+        path="/saturatory_contributions"
+        element={
+          <React.Suspense fallback={<Loading h={"100vh"} />}>
+            <RequireAuth>
+              <DashboardLayout>
+                <SaturatoryContributions />
               </DashboardLayout>
             </RequireAuth>
           </React.Suspense>

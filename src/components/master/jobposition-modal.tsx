@@ -6,9 +6,9 @@ import InputArea from '../common/form-fields/input-area'
 
 
 const JobPositionModal = ({ isOpen, onSubmit, onClose }: any) => {
-    const [isACtive, setIsActive] = useState(true)
-    const handlactiv = () => {
-        setIsActive(!isACtive)
+    const [isActive, setIsActive] = useState(true)
+    const handlactive = () => {
+        setIsActive(!isActive)
     }
 
 
@@ -18,8 +18,8 @@ const JobPositionModal = ({ isOpen, onSubmit, onClose }: any) => {
                 <div className='border-b-2 w-full mb-6'>
                     <h1 className='text-[#333333] opacity-70 font-semibold text-[14px] pb-3'>Add Job Position</h1>
                 </div>
-                <div>
-                    <div className='mb-3'>
+                <div className='flex flex-col gap-3'>
+                    <div>
                         <Input
                             label={"Title"}
                             isRequired
@@ -27,7 +27,7 @@ const JobPositionModal = ({ isOpen, onSubmit, onClose }: any) => {
                             type='text'
                         />
                     </div>
-                    <div className='mb-3'>
+                    <div>
                         <Input
                             label={"Code"}
                             isRequired
@@ -36,8 +36,8 @@ const JobPositionModal = ({ isOpen, onSubmit, onClose }: any) => {
                         />
                     </div>
                     <div className='mb-3 flex gap-3'>
-                        <Switch onClick={handlactiv} defaultChecked style={{ width: '24px', background: isACtive ? '#03A790' : '#F21E1E' }} />
-                        {isACtive ? <div>Active</div> : <div>deactive</div>}
+                        <Switch onClick={handlactive} defaultChecked style={{ width: '24px', background: isActive ? '#03A790' : '#F21E1E' }} />
+                        {isActive ? <div>Active</div> : <div>deactive</div>}
                     </div>
                     <div className='flex flex-col'>
                         <InputArea

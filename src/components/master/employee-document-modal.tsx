@@ -16,8 +16,8 @@ const EmployeDocumentModal = ({ isOpen, onSubmit, onClose }: any) => {
                 <div className='border-b-2 w-full mb-6'>
                     <h1 className='text-[#333333] opacity-70 font-semibold text-[14px] pb-3'>Add Document</h1>
                 </div>
-                <div>
-                    <div className='mb-3'>
+                <div className='flex flex-col gap-3'>
+                    <div>
                         <Input
                             label={"Document Type"}
                             isRequired
@@ -25,7 +25,7 @@ const EmployeDocumentModal = ({ isOpen, onSubmit, onClose }: any) => {
                             type='text'
                         />
                     </div>
-                    <div className='mb-3'>
+                    <div>
                         <Input
                             label={"Document Id"}
                             isRequired
@@ -33,7 +33,7 @@ const EmployeDocumentModal = ({ isOpen, onSubmit, onClose }: any) => {
                             type='text'
                         />
                     </div>
-                    <div className='mb-3'>
+                    <div>
                         <Input
                             label={"Attachment"}
                             isRequired

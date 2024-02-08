@@ -7,7 +7,7 @@ import DatePicker from '../common/form-fields/date-picker'
 
 const EmployeExperienceModal = ({ isOpen, onSubmit, onClose }: any) => {
     const [isACtive, setIsActive] = useState(true)
-    const handlactiv = () => {
+    const handlactive = () => {
         setIsActive(!isACtive)
     }
 
@@ -17,8 +17,8 @@ const EmployeExperienceModal = ({ isOpen, onSubmit, onClose }: any) => {
                 <div className='border-b-2 w-full mb-6'>
                     <h1 className='text-[#333333] opacity-70 font-semibold text-[14px] pb-3'>Add Experience</h1>
                 </div>
-                <div>
-                    <div className='mb-3'>
+                <div className='flex flex-col gap-3'>
+                    <div>
                         <Input
                             label={"Employer"}
                             isRequired
@@ -26,7 +26,7 @@ const EmployeExperienceModal = ({ isOpen, onSubmit, onClose }: any) => {
                             type='text'
                         />
                     </div>
-                    <div className='mb-3'>
+                    <div>
                         <Input
                             label={"Job Title"}
                             isRequired
@@ -34,17 +34,17 @@ const EmployeExperienceModal = ({ isOpen, onSubmit, onClose }: any) => {
                             type='text'
                         />
                     </div>
-                    <div className='mb-3'>
+                    <div>
                         <DatePicker
                             label={"From"}
                         />
                     </div>
-                    <div className='mb-3'>
+                    <div>
                         <DatePicker
                             label={"To"}
                         />
                     </div>
-                    <div className='mb-3'>
+                    <div>
                         <Input
                             label={"Duration"}
                             isRequired
