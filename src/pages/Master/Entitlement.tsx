@@ -6,7 +6,7 @@ import { FaRegEdit } from "react-icons/fa";
 import Header from '../../components/common/header/header';
 import Table from '../../components/common/table/table';
 import { FaPlus } from "react-icons/fa6";
-import EntitlementModal from '../../components/master/entitlement-modal';
+import EntitlementModal from '../../components/leave/entitlement-modal';
 
 
 

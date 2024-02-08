@@ -1,12 +1,12 @@
 import React  from 'react'
 import {useState}  from 'react'
-import StatusToggler from '../../components/common/partial/badges';
 import Button from '../../components/common/partial/button';
 import { FaRegEdit } from "react-icons/fa";
 import Header from '../../components/common/header/header';
 import Table from '../../components/common/table/table';
 import { FaPlus } from "react-icons/fa6";
-import LeaveModal from '../../components/master/leave-modal';
+import LeaveTypeModal from '../../components/leave/leave-type-modal';
+import Badges from '../../components/common/partial/badges';
 
 
 
@@ -17,7 +17,7 @@ interface DataType {
   description: string;
   status: boolean;
 }
-const Leave = () => {
+const LeaveType = () => {
     const [isOpen, setIsOpen] = useState(false);
   const handleCloseModal = () => setIsOpen(false);
   const handleOpenModal = () => setIsOpen(true);
@@ -85,7 +85,7 @@ const Leave = () => {
         title: "Status",
         render: (record: DataType) => (
           <div>
-            <StatusToggler />
+            <Badges label='Active' status='success' />
           </div>
         ),
       },
@@ -110,16 +110,16 @@ const Leave = () => {
       ),
     },
   ];
-  const breadcrumbItems = ["Home", "Leave"];
+  const breadcrumbItems = ["Home", "Leave Type"];
   return (
     <div>
-      <LeaveModal
+      <LeaveTypeModal
         isOpen={isOpen}
         onClose={handleCloseModal}
         onSubmit={handleCloseModal}
       />
       <Header
-        heading="Leave"
+        heading="Leave Type"
         breadcrumbItems={breadcrumbItems}
         icon={<FaPlus/>}
         primaryActionText="Add"
@@ -132,4 +132,4 @@ const Leave = () => {
   )
 }
 
-export default Leave
+export default LeaveType

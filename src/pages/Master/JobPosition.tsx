@@ -82,7 +82,7 @@ function JobPosition(props: Props) {
       title: "Status",
       render: (record: DataType) => (
         <div>
-          <Badges />
+          <Badges label='Active' status='success'/>
         </div>
       ),
     },

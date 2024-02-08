@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import Modal from '../common/modal/modal'
 import Input from '../common/form-fields/input'
-import { Switch } from 'antd'
-import InputArea from '../common/form-fields/input-area'
 import DatePicker from '../common/form-fields/date-picker'
 import Select from '../common/form-fields/select'
 
@@ -20,8 +18,8 @@ const EntitlementModal = ({ isOpen, onSubmit, onClose }: any) => {
                 <div className='border-b-2 w-full mb-6'>
                     <h1 className='text-[#333333] opacity-70 font-semibold text-[14px] pb-3'>Add Entitlement</h1>
                 </div>
-                <div>
-                    <div className='mb-3'>
+                <div className='flex flex-col gap-y-3'>
+                    <div>
                         <Input
                             label={"Type"}
                             isRequired
@@ -29,7 +27,7 @@ const EntitlementModal = ({ isOpen, onSubmit, onClose }: any) => {
                             type='text'
                         />
                     </div>
-                    <div className='mb-3'>
+                    <div>
                         <Input
                             label={"Earning Policy"}
                             isRequired
@@ -37,24 +35,24 @@ const EntitlementModal = ({ isOpen, onSubmit, onClose }: any) => {
                             type='text'
                         />
                     </div>
-                    <div className='mb-3'>
+                    <div>
                     <DatePicker
                                 label={"Earning Start"}
                                 isRequired
                             />
                     </div>
-                    <div className='mb-3'>
+                    <div>
                     <DatePicker
                                 label={"Valid Until"}
                                 isRequired
                             />
                     </div>
-                    <div className='mb-3 flex gap-3'>
+                    <div>
                        <Select
                        
                        /> 
                     </div>
-                    <div className='flex flex-col'>
+                    <div>
                         <Input
                             label={"Entitled Day"}
                             placeholder='Enter Entitled Day' 
