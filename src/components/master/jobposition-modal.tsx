@@ -7,7 +7,7 @@ import InputArea from '../common/form-fields/input-area'
 
 const JobPositionModal = ({ isOpen, onSubmit, onClose }: any) => {
     const [isActive, setIsActive] = useState(true)
-    const handlactive = () => {
+    const handelactive = () => {
         setIsActive(!isActive)
     }
 
@@ -36,7 +36,7 @@ const JobPositionModal = ({ isOpen, onSubmit, onClose }: any) => {
                         />
                     </div>
                     <div className='mb-3 flex gap-3'>
-                        <Switch onClick={handlactive} defaultChecked style={{ width: '24px', background: isActive ? '#03A790' : '#F21E1E' }} />
+                        <Switch onClick={handelactive} defaultChecked style={{ width: '24px', background: isActive ? '#03A790' : '#F21E1E' }} />
                         {isActive ? <div>Active</div> : <div>deactive</div>}
                     </div>
                     <div className='flex flex-col'>

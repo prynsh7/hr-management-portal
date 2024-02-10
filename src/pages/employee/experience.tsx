@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import EmployeExperienceModal from '../../components/master/employee-exp-modal';
+import EmployeExperienceModal from '../../components/employee/employee-experience-modal';
 import { FaPlus } from 'react-icons/fa';
 import Button from '../../components/common/partial/button';
+import EmployeeCard from '../../components/employee/employee-card';
 
 interface ExperienceProps {
     setTab: React.Dispatch<React.SetStateAction<string>>;
@@ -14,25 +15,25 @@ const Experience: React.FC<ExperienceProps> = ({ setTab }) => {
 
     const experienceData = [
         {
-            employer: 'Catalysts Reachout',
-            jobTitle: 'Frontend Developer',
-            fromDate: '20-12-2023',
-            toDate: '12-01-2024',
-            duration: '4 months'
+            'Employer': 'Catalysts Reachout',
+            'Job Title': 'Frontend Developer',
+            'From Date': '20-12-2023',
+            'To Date': '12-01-2024',
+            'Duration': '4 months'
         },
         {
-            employer: 'XYZ Company',
-            jobTitle: 'Backend Developer',
-            fromDate: '15-02-2022',
-            toDate: '20-11-2022',
-            duration: '9 months'
+            'Employer': 'Catalysts Reachout',
+            'Job Title': 'Frontend Developer',
+            'From Date': '20-12-2023',
+            'To Date': '12-01-2024',
+            'Duration': '4 months'
         },
         {
-            employer: 'XYZ Company',
-            jobTitle: 'Backend Developer',
-            fromDate: '15-02-2022',
-            toDate: '20-11-2022',
-            duration: '9 months'
+            'Employer': 'Catalysts Reachout',
+            'Job Title': 'Frontend Developer',
+            'From Date': '20-12-2023',
+            'To Date': '12-01-2024',
+            'Duration': '4 months'
         },
     ];
 
@@ -52,34 +53,19 @@ const Experience: React.FC<ExperienceProps> = ({ setTab }) => {
                     Add more
                 </Button>
             </div>
-            <div className=' border px-4 mt-6 rounded-xl shadow-md'>
-                {experienceData.map((experience, index) => (
-                    <div key={index} className='border rounded-xl flex flex-col my-4 justify-end items-end'>
-                        <div className='p-4 grid grid-cols-3 w-full'>
-                            <div className='font-semibold text-[14px] py-[10px]'>
-                                <h1 className='text-[#333333] opacity-70 '>Employer</h1>
-                                <h1 className='text-[#333333] opacity-90'>{experience.employer}</h1>
-                            </div>
-                            <div className='font-semibold text-[14px] py-[10px]'>
-                                <h1 className='text-[#333333] opacity-70 '>Job Title</h1>
-                                <h1 className='text-[#333333] opacity-90'>{experience.jobTitle}</h1>
-                            </div>
-                            <div className='font-semibold text-[14px] py-[10px]'>
-                                <h1 className='text-[#333333] opacity-70 '>From</h1>
-                                <h1 className='text-[#333333] opacity-90'>{experience.fromDate}</h1>
-                            </div>
-                            <div className='font-semibold text-[14px] py-[10px]'>
-                                <h1 className='text-[#333333] opacity-70 '>To</h1>
-                                <h1 className='text-[#333333] opacity-90'>{experience.toDate}</h1>
-                            </div>
-                            <div className='font-semibold text-[14px] py-[10px]'>
-                                <h1 className='text-[#333333] opacity-70 '>Duration</h1>
-                                <h1 className='text-[#333333] opacity-90'>{experience.duration}</h1>
-                            </div>
-                        </div>
+            {experienceData.map((experience, index) => (
+                <div key={index} className='border rounded-xl flex flex-col my-4 justify-end items-end'>
+                    <div className='p-4 grid grid-cols-3 w-full'>
+                        {Object.entries(experience).map(([key, value]) => (
+                            <EmployeeCard
+                                key={key}
+                                label={key}
+                                value={value}
+                            />
+                        ))}
                     </div>
-                ))}
-            </div>
+                </div>
+            ))}
         </div>
     );
 };

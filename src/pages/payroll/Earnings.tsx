@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Table from "../../components/common/table/table";
 import Header from "../../components/common/header/header";
 import { FaPlus } from "react-icons/fa";
-import PayrollModal from "../../components/master/payroll-modal";
+import PayrollModal from "../../components/payroll/payroll-modal";
 
 type Props = {}
 interface DataType {

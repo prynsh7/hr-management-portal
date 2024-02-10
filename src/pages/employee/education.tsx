@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Button from '../../components/common/partial/button';
-import EmployeEducationModal from '../../components/master/employee-education-modal';
+import EmployeEducationModal from '../../components/employee/employee-education-modal';
 import { FaPlus } from "react-icons/fa";
+import EmployeeCard from '../../components/employee/employee-card';
 
 interface EducationProps {
   setTab: React.Dispatch<React.SetStateAction<string>>; // Adjust the type based on your setTab implementation
@@ -13,9 +14,9 @@ const Education: React.FC<EducationProps> = ({ setTab }) => {
   const handleOpenModal = () => setIsOpen(true);
 
   const educationData = [
-    { universityName: 'Mumbai University', fieldOfStudy: 'Engineering', degree: 'B.Tech' },
-    { universityName: 'Delhi University', fieldOfStudy: 'Computer Science', degree: 'B.E.' },
-    { universityName: 'Calcutta University', fieldOfStudy: 'Mathematics', degree: 'B.Sc.' }
+    { 'University Name': 'Mumbai University', 'Field of Study': 'Engineering', 'degree': 'B.Tech' },
+    { 'University Name': 'Mumbai University', 'Field of Study': 'Engineering', 'degree': 'B.Tech' },
+    { 'University Name': 'Mumbai University', 'Field of Study': 'Engineering', 'degree': 'B.Tech' },
   ];
 
   return (
@@ -34,26 +35,19 @@ const Education: React.FC<EducationProps> = ({ setTab }) => {
           Add more
         </Button>
       </div>
-      <div className='border px-4 mt-6 rounded-xl shadow-md'>
       {educationData.map((education, index) => (
         <div key={index} className='border rounded-xl my-4 flex flex-col justify-end items-end'>
           <div className='p-4 grid grid-cols-3 w-full'>
-            <div className='font-semibold text-[14px] py-[10px]'>
-              <h1 className='text-[#333333] opacity-70 '>University Name</h1>
-              <h1 className='text-[#333333] opacity-90'>{education.universityName}</h1>
-            </div>
-            <div className='font-semibold text-[14px] py-[10px]'>
-              <h1 className='text-[#333333] opacity-70 '>Field of Study</h1>
-              <h1 className='text-[#333333] opacity-90'>{education.fieldOfStudy}</h1>
-            </div>
-            <div className='font-semibold text-[14px] py-[10px]'>
-              <h1 className='text-[#333333] opacity-70 '>Degree</h1>
-              <h1 className='text-[#333333] opacity-90'>{education.degree}</h1>
-            </div>
+            {Object.entries(education).map(([key, value]) => (
+              <EmployeeCard
+                key={key}
+                label={key}
+                value={value}
+              />
+            ))}
           </div>
         </div>
       ))}
-      </div>
     </div>
   );
 };

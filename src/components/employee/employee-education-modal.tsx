@@ -1,54 +1,43 @@
 import React, { useState } from 'react'
 import Modal from '../common/modal/modal'
 import Input from '../common/form-fields/input'
-import DatePicker from '../common/form-fields/date-picker'
 
 
 
-const EmployeExperienceModal = ({ isOpen, onSubmit, onClose }: any) => {
-    const [isACtive, setIsActive] = useState(true)
-    const handlactive = () => {
-        setIsActive(!isACtive)
+const EmployeEducationModal = ({ isOpen, onSubmit, onClose }: any) => {
+    const [isActive, setIsActive] = useState(true)
+    const handelactive = () => {
+        setIsActive(!isActive)
     }
 
     return (
         <Modal width={'50%'} isOpen={isOpen} handleSubmit={onSubmit} handleCancel={onClose} cancelButtonText='Close' submitButtonText="Save">
             <div>
                 <div className='border-b-2 w-full mb-6'>
-                    <h1 className='text-[#333333] opacity-70 font-semibold text-[14px] pb-3'>Add Experience</h1>
+                    <h1 className='text-[#333333] opacity-70 font-semibold text-[14px] pb-3'>Add Education</h1>
                 </div>
                 <div className='flex flex-col gap-3'>
                     <div>
                         <Input
-                            label={"Employer"}
+                            label={"University Name"}
                             isRequired
-                            placeholder='Employer'
+                            placeholder='University Name'
                             type='text'
                         />
                     </div>
                     <div>
                         <Input
-                            label={"Job Title"}
+                            label={"Field of Study"}
                             isRequired
-                            placeholder='Job Title'
+                            placeholder='Field of Study'
                             type='text'
                         />
                     </div>
                     <div>
-                        <DatePicker
-                            label={"From"}
-                        />
-                    </div>
-                    <div>
-                        <DatePicker
-                            label={"To"}
-                        />
-                    </div>
-                    <div>
                         <Input
-                            label={"Duration"}
+                            label={"Degree"}
                             isRequired
-                            placeholder='Duration'
+                            placeholder='Degree'
                             type='text'
                         />
                     </div>
@@ -58,4 +47,4 @@ const EmployeExperienceModal = ({ isOpen, onSubmit, onClose }: any) => {
     )
 }
 
-export default EmployeExperienceModal
+export default EmployeEducationModal

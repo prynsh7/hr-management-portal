@@ -4,40 +4,40 @@ import Input from '../common/form-fields/input'
 
 
 
-const EmployeEducationModal = ({ isOpen, onSubmit, onClose }: any) => {
-    const [isACtive, setIsActive] = useState(true)
-    const handlactiv = () => {
-        setIsActive(!isACtive)
+const EmployeDocumentModal = ({ isOpen, onSubmit, onClose }: any) => {
+    const [isActive, setIsActive] = useState(true)
+    const handelactive = () => {
+        setIsActive(!isActive)
     }
 
     return (
         <Modal width={'50%'} isOpen={isOpen} handleSubmit={onSubmit} handleCancel={onClose} cancelButtonText='Close' submitButtonText="Save">
             <div>
                 <div className='border-b-2 w-full mb-6'>
-                    <h1 className='text-[#333333] opacity-70 font-semibold text-[14px] pb-3'>Add Education</h1>
+                    <h1 className='text-[#333333] opacity-70 font-semibold text-[14px] pb-3'>Add Document</h1>
                 </div>
                 <div className='flex flex-col gap-3'>
                     <div>
                         <Input
-                            label={"University Name"}
+                            label={"Document Type"}
                             isRequired
-                            placeholder='University Name'
+                            placeholder='Document Type'
                             type='text'
                         />
                     </div>
                     <div>
                         <Input
-                            label={"Field of Study"}
+                            label={"Document Id"}
                             isRequired
-                            placeholder='Field of Study'
+                            placeholder='Document Id'
                             type='text'
                         />
                     </div>
                     <div>
                         <Input
-                            label={"Degree"}
+                            label={"Attachment"}
                             isRequired
-                            placeholder='Degree'
+                            placeholder='Attachment'
                             type='text'
                         />
                     </div>
@@ -47,4 +47,4 @@ const EmployeEducationModal = ({ isOpen, onSubmit, onClose }: any) => {
     )
 }
 
-export default EmployeEducationModal
+export default EmployeDocumentModal

@@ -157,6 +157,22 @@ function Sidebar() {
                     label: "Saturatory Contributions",
                     path: "/saturatory_contributions",
                 },
+                {
+                    key: "4-5",
+                    icon: (
+                        <img src={ICONS.SIDEBAR_OFFERS} className="w-[18px] h-[18px]" alt="" />
+                    ),
+                    label: "Salary Adjustment",
+                    path: "/salary_adjustment",
+                },
+                {
+                    key: "4-6",
+                    icon: (
+                        <img src={ICONS.SIDEBAR_OFFERS} className="w-[18px] h-[18px]" alt="" />
+                    ),
+                    label: "Annual Salary Statement",
+                    path: "/annual_salary_statement",
+                },
             ],
         },
     ];

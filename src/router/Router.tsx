@@ -19,6 +19,8 @@ import Earnings from "../pages/payroll/Earnings";
 import Deductions from "../pages/payroll/Deductions";
 import Bonus from "../pages/payroll/Bonus";
 import SaturatoryContributions from "../pages/payroll/SaturatoryContributions";
+import SalaryAdjustment from "../pages/payroll/SalaryAdjustment";
+import AnnualSalaryStatement from "../pages/payroll/AnnualSalaryStatement";
 
 // const Department = lazy(() => import("../pages/master/Department"));
 
@@ -200,6 +202,30 @@ const Router = (props: Props) => {
             <RequireAuth>
               <DashboardLayout>
                 <SaturatoryContributions />
+              </DashboardLayout>
+            </RequireAuth>
+          </React.Suspense>
+        }
+      />
+      <Route
+        path="/salary_adjustment"
+        element={
+          <React.Suspense fallback={<Loading h={"100vh"} />}>
+            <RequireAuth>
+              <DashboardLayout>
+                <SalaryAdjustment />
+              </DashboardLayout>
+            </RequireAuth>
+          </React.Suspense>
+        }
+      />
+      <Route
+        path="/annual_salary_statement"
+        element={
+          <React.Suspense fallback={<Loading h={"100vh"} />}>
+            <RequireAuth>
+              <DashboardLayout>
+                <AnnualSalaryStatement />
               </DashboardLayout>
             </RequireAuth>
           </React.Suspense>
