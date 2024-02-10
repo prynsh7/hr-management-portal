@@ -36,8 +36,8 @@ const Employee = () => {
            Delete Profile</Button>
         </div>
         {/* detail */}
-        <div className='p-6 w-full h-full'>
-            <nav className=' w-full pb-6 '>
+        <div className='p-6 w-full h-full border rounded-xl'>
+            <nav className='w-full pb-6 '>
                 <ul className='flex gap-12'>
                     <li onClick={()=>{setTab('basic')}} className={`text-[16px] cursor-pointer font-semibold ${tab === 'basic' ? 'nav-link' : 'after:bg-transparent' } `}>
                         Basic

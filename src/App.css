@@ -31,3 +31,6 @@ max-height: calc(100vh - 104px);
 .ant-menu-submenu-title{
   padding-left: 15px !important;
 }
+.ant-table-wrapper{
+  overflow: hidden;
+}

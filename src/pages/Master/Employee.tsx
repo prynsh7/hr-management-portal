@@ -5,9 +5,10 @@ import Table from "../../components/common/table/table";
 import Button from "../../components/common/partial/button";
 import { useNavigate } from "react-router-dom";
 import { Switch } from "antd";
-import { FaRegEdit } from "react-icons/fa";
+import { FaPlus, FaRegEdit } from "react-icons/fa";
 // import StatusToggler from "../../components/common/partial/status-toggler";
 import img from "../../assets/images/auth.png";
+import Header from "../../components/common/header/header";
 
 type Props = {};
 interface DataType {
@@ -23,7 +24,7 @@ const Employee = (props: Props) => {
   const handlactive = () => {
     setIsActive(!isActive);
   };
-  const breadcrumbItems = ["Home", "Employee", "jshhdd"];
+  const breadcrumbItems = ["Home", "Employee"];
   const navigate = useNavigate();
   const navigateToAdd = () => {
     navigate("/employee/id");
@@ -123,17 +124,15 @@ const Employee = (props: Props) => {
 
   return (
     <div>
-      <Heading type="h4">Employee</Heading>
-      <Breadcrumb items={breadcrumbItems} />
+      {/* <Breadcrumb items={breadcrumbItems} /> */}
+      <Header
+        heading="Employee"
+        breadcrumbItems={breadcrumbItems}
+        icon={<FaPlus />}
+        primaryActionText="Add"
+        onPrimaryActionClick={navigateToAdd}
+      />
       <div className="mt-6 flex flex-col items-end">
-        <Button
-          type="filled"
-          className="mb-4"
-          onClick={navigateToAdd}
-          state="primary"
-        >
-          Add +
-        </Button>
         <Table className="w-full" dataSource={dataSource} columns={columns} />
       </div>
     </div>

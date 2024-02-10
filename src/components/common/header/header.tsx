@@ -5,9 +5,9 @@ import Breadcrumb from "../../../components/common/bredcrumb";
 
 interface HeaderProps {
     heading: string;
-    breadcrumbItems: string[];
-    primaryActionText: string;
-    onPrimaryActionClick: () => void;
+    breadcrumbItems?: string[];
+    primaryActionText?: string;
+    onPrimaryActionClick?: () => void;
     icon?: React.ReactNode;
 }
 

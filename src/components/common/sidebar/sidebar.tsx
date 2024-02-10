@@ -105,8 +105,8 @@ function Sidebar() {
             icon: (
                 <img src={ICONS.SIDEBAR_PROFILE} className="w-[18px] h-[18px]" alt="" />
             ),
-            label: "Profile",
-            path: "/profile",
+            label: "Employee",
+            path: "/employee",
         },
         {
             key: "4",
@@ -117,8 +117,63 @@ function Sidebar() {
                     alt=""
                 />
             ),
-            label: "Settings",
-            path: "/settings",
+            label: "Payroll",
+            path: "/payroll",
+            type: "subMenu",
+            children: [
+                {
+                    key: "4-1",
+                    icon: (
+                        <img
+                            src={ICONS.SIDEBAR_REQUESTS}
+                            className="w-[18px] h-[18px]"
+                            alt=""
+                        />
+                    ),
+                    label: "Earnings",
+                    path: "/earnings",
+                },
+                {
+                    key: "4-2",
+                    icon: (
+                        <img src={ICONS.SIDEBAR_OFFERS} className="w-[18px] h-[18px]" alt="" />
+                    ),
+                    label: "Deductions",
+                    path: "/deductions",
+                },
+                {
+                    key: "4-3",
+                    icon: (
+                        <img src={ICONS.SIDEBAR_OFFERS} className="w-[18px] h-[18px]" alt="" />
+                    ),
+                    label: "Bonus",
+                    path: "/bonus",
+                },
+                {
+                    key: "4-4",
+                    icon: (
+                        <img src={ICONS.SIDEBAR_OFFERS} className="w-[18px] h-[18px]" alt="" />
+                    ),
+                    label: "Saturatory Contributions",
+                    path: "/saturatory_contributions",
+                },
+                {
+                    key: "4-5",
+                    icon: (
+                        <img src={ICONS.SIDEBAR_OFFERS} className="w-[18px] h-[18px]" alt="" />
+                    ),
+                    label: "Salary Adjustment",
+                    path: "/salary_adjustment",
+                },
+                {
+                    key: "4-6",
+                    icon: (
+                        <img src={ICONS.SIDEBAR_OFFERS} className="w-[18px] h-[18px]" alt="" />
+                    ),
+                    label: "Annual Salary Statement",
+                    path: "/annual_salary_statement",
+                },
+            ],
         },
     ];
     const navigate = useNavigate();
@@ -129,11 +184,11 @@ function Sidebar() {
     };
     return (
         <div>
-            <div>
+            <div className="border-r border-r-slate-200">
                 <Menu
                     onClick={onClickMenuItem}
                     defaultSelectedKeys={["1"]}
-                    defaultOpenKeys={["sub1"]} // Open the "sub1" submenu by default
+                    defaultOpenKeys={["sub1"]}
                     mode="inline"
                     style={{
                         width: !collapsed ? "260px" : "64px",

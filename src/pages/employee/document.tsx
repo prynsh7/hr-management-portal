@@ -1,41 +1,63 @@
-import React from 'react'
-import Input from '../../components/common/form-fields/input'
+import React, { useState } from 'react'
 import Button from '../../components/common/partial/button'
-import { Navigate } from 'react-router-dom'
+import EmployeDocumentModal from '../../components/employee/employee-document-modal'
+import { FaPlus } from 'react-icons/fa'
+import EmployeeCard from '../../components/employee/employee-card'
 
 const Document = () => {
-  return (
-    <div className='border rounded-xl mt-6 flex flex-col justify-end items-end'>
-    <div className='pt-6 px-6 grid grid-cols-2 gap-6 w-full'>
-      <div>
-          <label htmlFor="documenttype">
-              Document Type
-          </label>
-          <Input
-          type='text' placeholder='Document Type'
-          />
-      </div>
-      <div>
-          <label htmlFor="documnetid">
-            Documnet Id
-          </label>
-          <Input
-          type='text' placeholder='Documnet Id'
-          />
-      </div>
-      <div>
-          <label htmlFor="attachment">
-              Attachment
-          </label>
-          <Input
-          type='text' placeholder='Email'
-          />
-      </div>
-    </div>
-    <Button type='filled' state='primary' className='m-6 px-9 py-3'>Submit</Button>
+  const [isOpen, setIsOpen] = useState(false);
+  const handleCloseModal = () => setIsOpen(false);
+  const handleOpenModal = () => setIsOpen(true);
 
-  </div>
+  const documentData = [
+    {
+      'Document Type': 'Xyz',
+      'Document Id': '987625434',
+      'Attachment': 'xyz'
+    },
+    {
+      'Document Type': 'Xyz',
+      'Document Id': '987625434',
+      'Attachment': 'xyz'
+    },
+    {
+      'Document Type': 'Xyz',
+      'Document Id': '987625434',
+      'Attachment': 'xyz'
+    },
+  ];
+
+
+  return (
+    <div>
+      <EmployeDocumentModal
+        isOpen={isOpen}
+        onClose={handleCloseModal}
+        onSubmit={handleCloseModal}
+      />
+      <div className='flex justify-end'>
+        <Button type='filled' state='primary'
+          className="px-[10px] py-[6px] rounded"
+          onClick={handleOpenModal}
+        >
+          <FaPlus className='mr-[4px]' />
+          Add more
+        </Button>
+      </div>
+      {documentData.map((document, index) => (
+        <div key={index} className='border rounded-xl my-4 flex flex-col justify-end items-end'>
+          <div className='p-4 grid grid-cols-3 w-full'>
+            {Object.entries(document).map(([key, value]) => (
+              <EmployeeCard
+              key={key}
+                label={key}
+                value={value}
+              />
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
   )
 }
-
 export default Document

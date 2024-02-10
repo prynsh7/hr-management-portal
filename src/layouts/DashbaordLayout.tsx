@@ -10,19 +10,14 @@ type Props = {
 const DashboardLayout = (props: Props) => {
   const [authState, setAuthState] = useState(true);
   const location = useLocation();
-    console.log(location.pathname);
   return (
-    <div>
-      <div className="flex">
-        <Sidebar />
-        <div
-          className={`grow bg-main_bg relative ${location.pathname === "/profile" ? "pt-6" : "p-6"
-            }`}
-        >
-          <div className={`${location.pathname === "/profile" ? "px-6" : ""}`}>
-            <Topbar />
-          </div>
-
+    <div className="flex h-screen overflow-hidden">
+      <Sidebar />
+      <div className="flex flex-col flex-1 overflow-y-auto relative">
+        <div className="sticky top-0 z-10">
+          <Topbar />
+        </div>
+        <div className={`${location.pathname === "/profile" ? "pt-16 px-6" : "p-6"}`}>
           {authState && props.children}
         </div>
       </div>

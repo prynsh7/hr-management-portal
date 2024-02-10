@@ -10,11 +10,11 @@ const Topbar = (props: Props) => {
 
   return (
     <div
-      className={`relative flex justify-between items-center py-3 w-full h-[80px] z-10`}
+      className={`bg-[#fff] relative flex justify-between items-center py-3 w-full h-[80px] z-10 border-b border-b-slate-200`}
     >
       <div></div>
       <div
-        className={`flex gap-4 h-full items-center ${
+        className={`flex gap-4 h-full items-center px-6 ${
           TOPBAR_BG_TRANSPARENT_PAGES.includes(pathname)
             ? "text-main_bg"
             : "text-text_high"

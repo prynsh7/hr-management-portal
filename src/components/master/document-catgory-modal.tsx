@@ -12,8 +12,8 @@ const DepartmentModal = ({ isOpen, onSubmit, onClose }: any) => {
                 <div className='border-b-2 w-full mb-6'>
                     <h1 className='text-[#333333] opacity-70 font-semibold text-[14px] pb-3'>Add New Document Category</h1>
                 </div>
-                <div>
-                    <div className='mb-3'>
+                <div className='flex flex-col gap-3'>
+                    <div>
                         <Input
                             label={"Title"}
                             placeholder='Title'
@@ -21,7 +21,7 @@ const DepartmentModal = ({ isOpen, onSubmit, onClose }: any) => {
                             isRequired
                         />
                     </div>
-                    <div className='mb-3'>
+                    <div>
                         <Input
                             placeholder='Code'
                             type='text'
@@ -29,7 +29,7 @@ const DepartmentModal = ({ isOpen, onSubmit, onClose }: any) => {
                             isRequired
                         />
                     </div>
-                    <div className='flex flex-col'>
+                    <div>
                         <InputArea
                             label={"Description"}
                         />

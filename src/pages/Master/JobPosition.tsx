@@ -82,7 +82,10 @@ function JobPosition(props: Props) {
       title: "Status",
       render: (record: DataType) => (
         <div>
-          <Badges />
+          <Badges
+            status="success"
+            label="Active"
+          />
         </div>
       ),
     },
@@ -128,7 +131,7 @@ function JobPosition(props: Props) {
       <Header
         heading="Job Position"
         breadcrumbItems={breadcrumbItems}
-        icon={<FaPlus/>}
+        icon={<FaPlus />}
         primaryActionText="Add"
         onPrimaryActionClick={handleOpenModal}
       />
