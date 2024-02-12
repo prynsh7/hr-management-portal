@@ -2,12 +2,11 @@ import React, { useState } from "react";
 import Modal from "../common/modal/modal";
 import Input from "../common/form-fields/input";
 import { Switch } from "antd";
-import InputArea from "../common/form-fields/input-area";
 
 const LeaveTypeModal = ({ isOpen, onSubmit, onClose }: any) => {
-  const [isACtive, setIsActive] = useState(true);
-  const handlactiv = () => {
-    setIsActive(!isACtive);
+  const [isActive, setIsActive] = useState(true);
+  const handlactive = () => {
+    setIsActive(!isActive);
   };
 
   return (
@@ -39,14 +38,14 @@ const LeaveTypeModal = ({ isOpen, onSubmit, onClose }: any) => {
           </div>
           <div className="flex gap-3">
             <Switch
-              onClick={handlactiv}
+              onChange={handlactive}
               defaultChecked
               style={{
                 width: "24px",
-                background: isACtive ? "#03A790" : "#F21E1E",
+                background: isActive ? "#03A790" : "#F21E1E",
               }}
             />
-            {isACtive ? <div>Active</div> : <div>deactive</div>}
+            {isActive ? <div>Active</div> : <div>deactive</div>}
           </div>
           <div className="mb-3">
             <Input label={"Day Count"} placeholder="Day Count" type="text" />

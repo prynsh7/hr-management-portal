@@ -5,7 +5,8 @@ import { Switch } from "antd";
 import InputArea from "../common/form-fields/input-area";
 import DatePicker from "../common/form-fields/date-picker";
 import Select from "../common/form-fields/select";
-import Upload from "../common/form-fields/upload";
+import ChooseFile from "../common/form-fields/choose-file";
+
 
 const LeaveApplicationModal = ({ isOpen, onSubmit, onClose }: any) => {
   return (
@@ -23,7 +24,7 @@ const LeaveApplicationModal = ({ isOpen, onSubmit, onClose }: any) => {
             Add Application
           </h1>
         </div>
-        <div className="flex flex-col h-[90%] gap-3 overflow-auto">
+        <div className="flex flex-col h-[90%] gap-3 px-2 overflow-auto">
           <div>
             <Select
               // label={"Entitlement"}
@@ -56,10 +57,10 @@ const LeaveApplicationModal = ({ isOpen, onSubmit, onClose }: any) => {
           </div>
           <div className="flex w-full gap-3">
             <div className="w-full">
-            <Input label={"Attachment 1"} placeholder="0" type="text" />
+            <ChooseFile btnText="Choose File" isRequired label="Attachment 1"/> 
             </div>
             <div className="w-full">
-            <Input label={"Attachment 2"} placeholder="0" type="text" />
+            <ChooseFile btnText="Choose File" isRequired label="Attachment 2"/>
             </div>
           </div>
           <div>
