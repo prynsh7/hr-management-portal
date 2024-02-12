@@ -20,7 +20,7 @@ interface DataType {
 
 const Employee = (props: Props) => {
   const [isActive, setIsActive] = useState(true);
-  const handlactive = () => {
+  const handleActive = () => {
     setIsActive(!isActive);
   };
   const breadcrumbItems = ["Home", "Employee", "jshhdd"];

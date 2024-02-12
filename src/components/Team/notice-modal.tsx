@@ -6,6 +6,7 @@ import InputArea from "../common/form-fields/input-area";
 import DatePicker from "../common/form-fields/date-picker";
 import Select from "../common/form-fields/select";
 import Upload from "../common/form-fields/upload";
+import CheckBox from "../common/form-fields/check-box";
 
 const NoticeModal = ({ isOpen, onSubmit, onClose }: any) => {
   return (
@@ -35,10 +36,11 @@ const NoticeModal = ({ isOpen, onSubmit, onClose }: any) => {
           <div>
             <DatePicker label={"Date"} isRequired />
           </div>
-          <div>
-          <h1 className="text-[#333333] font-semibold text-[16px] mt-6 pb-3">
+          <div className="flex items-center justify-between w-[70%] ">
+          <h1 className="text-[#333333] opacity-70  font-semibold text-[14px]">
             Notify Employee
           </h1>
+          <Switch/>
           </div>
           <div>
             <Input label={"Attachment"} isRequired/>

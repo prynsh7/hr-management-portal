@@ -47,7 +47,7 @@ const Notice = () => {
       <div className="grid grid-cols-2 gap-6 mt-9">
           {topic.map((topic,idx)=>{
             return <div key={idx}>
-                <Card topic={topic}/>
+                <Card topic={topic} handleOpenModal={handleOpenModal}/>
             </div>
           })}
       </div>
@@ -59,13 +59,14 @@ export default Notice;
 
 const Card = ({
   topic,
-  
+  handleOpenModal
 }: {
   topic: any;
+  handleOpenModal:() => void
 }) => {
   const{title,description}=topic
   return (
-   <div className="shadow-lg border p-9 rounded-lg">
+   <div onClick={handleOpenModal} className="shadow-lg border p-9 rounded-lg">
       <div>
         <h6 className="text-[20px] font-semibold">{title}</h6>
       </div>
