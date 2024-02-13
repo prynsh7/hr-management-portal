@@ -1,10 +1,4 @@
-import React, { useState } from "react";
-import Modal from "../common/modal/modal";
 import Input from "../common/form-fields/input";
-import { Switch } from "antd";
-import InputArea from "../common/form-fields/input-area";
-import DatePicker from "../common/form-fields/date-picker";
-import Select from "../common/form-fields/select";
 import { useNavigate } from "react-router-dom";
 import { IoCloseOutline } from "react-icons/io5";
 import { GrEmoji } from "react-icons/gr";
@@ -16,6 +10,38 @@ const Chat = ({ isOpen, onSubmit, onClose }: any) => {
   const navigateTo = () => {
     navigate("/discussion");
   };
+  const message=[
+    {
+      username:"appu",
+      type:'other',
+      content:'hy',
+      image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU3HFVnkYFJ_OIogo__Qv58bmhwRqZJcQhOA&usqp=CAU"
+    },
+    {
+      username:"Priyansh",
+      type:'other',
+      content:'hy',
+      image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU3HFVnkYFJ_OIogo__Qv58bmhwRqZJcQhOA&usqp=CAU"
+    },
+    {
+      username:"Priyansh",
+      type:'me',
+      content:'hy',
+      image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU3HFVnkYFJ_OIogo__Qv58bmhwRqZJcQhOA&usqp=CAU"
+    },
+    {
+      username:"Anand",
+      type:'other',
+      content:'hello everyone thank you how do you do jjj jjjjjjj jjjjjjj kkkkk',
+      image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU3HFVnkYFJ_OIogo__Qv58bmhwRqZJcQhOA&usqp=CAU"
+    },
+    {
+      username:"nitin",
+      type:'me',
+      content:'achhe',
+      image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU3HFVnkYFJ_OIogo__Qv58bmhwRqZJcQhOA&usqp=CAU"
+    },
+  ]
   return (
     <div className="mt-6 overflow-auto">
       {/* upper */}
@@ -32,52 +58,20 @@ const Chat = ({ isOpen, onSubmit, onClose }: any) => {
       {/* main */}
       <div className="h-[60vh] ">
         <div className="h-full overflow-auto px-3">
-          <OtherMessage
-            image={
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU3HFVnkYFJ_OIogo__Qv58bmhwRqZJcQhOA&usqp=CAU"
-            }
-            text={"hello"}
-            sender={"Appu"}
-          />
-          <MyMessage text={"hy"} />
-          <OtherMessage
-            image={
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU3HFVnkYFJ_OIogo__Qv58bmhwRqZJcQhOA&usqp=CAU"
-            }
-            text={"helo"}
-            sender={"Ansh"}
-          />
-          <OtherMessage
-            image={
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU3HFVnkYFJ_OIogo__Qv58bmhwRqZJcQhOA&usqp=CAU"
-            }
-            text={
-              "helo everyone hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh ddddddddddddddddddddd ddddddd"
-            }
-            sender={"Ansh"}
-          />
-          <OtherMessage
-            image={
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU3HFVnkYFJ_OIogo__Qv58bmhwRqZJcQhOA&usqp=CAU"
-            }
-            text={"hello "}
-            sender={"Anand"}
-          />
-          <OtherMessage
-            image={
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU3HFVnkYFJ_OIogo__Qv58bmhwRqZJcQhOA&usqp=CAU"
-            }
-            text={"can we meet??"}
-            sender={"Ansh"}
-          />
-          <OtherMessage
-            image={
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU3HFVnkYFJ_OIogo__Qv58bmhwRqZJcQhOA&usqp=CAU"
-            }
-            text={"yes why not"}
-            sender={"Appu"}
-          />
-          <MyMessage text={"Yes"} />
+          {message.map((msg,idx)=>{
+            return <div key={idx}>
+               {msg.type === "other" ? (
+        <OtherMessage
+          image={msg.image}
+          text={msg.content}
+          sender={msg.username}
+        />
+      ) : (
+        <MyMessage text={msg.content} />
+      )}
+            </div>
+          })}
+        
         </div>
       </div>
       {/* lower */}

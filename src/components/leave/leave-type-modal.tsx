@@ -5,7 +5,7 @@ import { Switch } from "antd";
 
 const LeaveTypeModal = ({ isOpen, onSubmit, onClose }: any) => {
   const [isActive, setIsActive] = useState(true);
-  const handlactive = () => {
+  const handleActive = () => {
     setIsActive(!isActive);
   };
 
@@ -38,7 +38,7 @@ const LeaveTypeModal = ({ isOpen, onSubmit, onClose }: any) => {
           </div>
           <div className="flex gap-3">
             <Switch
-              onChange={handlactive}
+              onChange={handleActive}
               defaultChecked
               style={{
                 width: "24px",

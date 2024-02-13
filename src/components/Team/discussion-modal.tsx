@@ -4,6 +4,8 @@ import Input from "../common/form-fields/input";
 import InputArea from "../common/form-fields/input-area";
 import DatePicker from "../common/form-fields/date-picker";
 import ChooseFile from "../common/form-fields/choose-file";
+import { Switch } from "antd";
+
 
 const DiscussionModal= ({ isOpen, onSubmit, onClose }: any) => {
   return (
@@ -33,10 +35,11 @@ const DiscussionModal= ({ isOpen, onSubmit, onClose }: any) => {
           <div>
             <DatePicker label={"Date"} isRequired />
           </div>
-          <div>
-          <h1 className="text-[#333333] font-semibold text-[16px] mt-6 pb-3">
+          <div className="flex items-center justify-between w-[70%] ">
+          <h1 className="text-[#333333] opacity-70  font-semibold text-[14px]">
             Notify Employee
           </h1>
+          <Switch/>
           </div>
           <div>
             <ChooseFile btnText="Choose File" isRequired label="Attachment"/>

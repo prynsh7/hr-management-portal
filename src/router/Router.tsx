@@ -17,7 +17,7 @@ import Verify from "../pages/auth/Verify";
 import SetPassword from "../pages/auth/SetPassword";
 import LeaveType from "../pages/Leave/LeaveType";
 import Entitlement from "../pages/Leave/Entitlement";
-import LeaveAppllication from "../pages/Leave/LeaveAppllication";
+import LeaveAppllication from "../pages/Leave/LeaveApplication";
 import Chat from "../components/Team/chat";
 import Notice from "../pages/Team/Notice";
 import Discussion from "../pages/Team/Discussion";

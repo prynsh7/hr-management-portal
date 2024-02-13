@@ -7,7 +7,7 @@ import Select from '../common/form-fields/select'
 
 const EntitlementModal = ({ isOpen, onSubmit, onClose }: any) => {
     const [isActive, setIsActive] = useState(true)
-    const handlactive = () => {
+    const handleActive = () => {
         setIsActive(!isActive)
     }
 
