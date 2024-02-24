@@ -28,6 +28,7 @@ const Employee = (props: Props) => {
   const navigateToAdd = () => {
     navigate("/employee/id");
   };
+ 
   const dataSource = [
     {
       id: 1,

@@ -80,18 +80,17 @@ const LeaveAppllication = () => {
       {/* main */}
       <div className="mt-9">
         {/* upper */}
-        <div className="flex gap-4 mb-12">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-6">
           {/* card */}
           <NotificationCard text={"Text Request"} number={53} color="purple" />
           <NotificationCard text={"New Request"} number={40} color="green" />
           <NotificationCard text={"Rejected"} number={3} color="orange" />
           <NotificationCard text={"Pending"} number={15} color="yellow" />
         </div>
-        <div className="">
+        <div className="mt-9">
           <div className="text-xl flex gap-3">
-            Leave Approval{" "}
+            Leave Approval
             <span className="text-lg text-orange-400 flex gap-1 items-center">
-              {" "}
               pending
             </span>
           </div>
@@ -128,13 +127,13 @@ const NotificationCard = ({
   number: number;
 }) => {
   return (
-    <div className="flex gap-3 h-[70px] w-[300px]">
+    <div className="flex gap-3 h-[70px] max-w-[300px]">
       <div className={`notification-card ${color} h-full w-[6px]`}></div>
       <div className="flex flex-col my-auto gap-1">
         <p className="text-[#333333] opacity-70  font-semibold text-[14px]">
           {text}
         </p>
-        <span className="text-2xl text-purple-400">{number}</span>
+        <span className={`notification-text ${color} text-2xl`}>{number}</span>
       </div>
     </div>
   );

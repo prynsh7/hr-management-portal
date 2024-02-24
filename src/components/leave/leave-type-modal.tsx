@@ -1,14 +1,75 @@
 import React, { useState } from "react";
 import Modal from "../common/modal/modal";
-import Input from "../common/form-fields/input";
-import { Switch } from "antd";
+import InputMain from "../common/form-fields/input-main";
 
 const LeaveTypeModal = ({ isOpen, onSubmit, onClose }: any) => {
-  const [isActive, setIsActive] = useState(true);
-  const handleActive = () => {
-    setIsActive(!isActive);
-  };
-
+  const handleChange =(e:any)=>{
+    const {name,value}= e
+    setInputValues((prev:any)=>({...prev,[name]:value}))
+  }
+  const input= [
+    {
+        label:'Code',
+        value:'',
+        type:'text',
+        key:'code',
+        required: true,
+        placeholder:'Code'
+      },
+      {
+        label:'Description',
+        value: '',
+        type:'text',
+        key:'description',
+        required: true,
+        placeholder:'Description'
+      },
+    {
+        type:'toggler',
+        key:'status',
+        onActive:'Active',
+        onDeactive:'Deactive'
+    },
+    {
+      label:'Day Count',
+      value: '',
+      type:'text',
+      key:'day_count',
+      required: true,
+      placeholder:'Day Count'
+    },
+    {
+      type:'toggler',
+      key:'paid_leave',
+      onActive:'Paid Leave',
+      onDeactive:'Paid Leave'
+  },
+    {
+      type:'toggler',
+      key:'negative_balance',
+      onActive:'Allow Negative Balance',
+      onDeactive:'Allow Negative Balance'
+  },
+    {
+      type:'toggler',
+      key:'reason_required',
+      onActive:'Reason Required',
+      onDeactive:'Reason Required'
+  },
+    {
+      type:'toggler',
+      key:'attachment_required',
+      onActive:'Attachment Required',
+      onDeactive:'Attachment Required'
+  },
+    
+    ]
+    const [inpuValues,setInputValues]=useState(input.reduce((acc:any, obj) => {
+      acc[obj.key] = obj.value;
+      return acc;
+    }, {}))
+    console.log(inpuValues);
+    
   return (
     <Modal
       width={"50%"}
@@ -25,47 +86,7 @@ const LeaveTypeModal = ({ isOpen, onSubmit, onClose }: any) => {
           </h1>
         </div>
         <div className="flex flex-col gap-y-3 ">
-          <div>
-            <Input label={"Code"} isRequired placeholder="Code" type="text" />
-          </div>
-          <div>
-            <Input
-              label={"Description"}
-              placeholder="Description"
-              isRequired
-              type="text"
-            />
-          </div>
-          <div className="flex gap-3">
-            <Switch
-              onChange={handleActive}
-              defaultChecked
-              style={{
-                width: "24px",
-                background: isActive ? "#03A790" : "#F21E1E",
-              }}
-            />
-            {isActive ? <div>Active</div> : <div>deactive</div>}
-          </div>
-          <div className="mb-3">
-            <Input label={"Day Count"} placeholder="Day Count" type="text" />
-          </div>
-          <div className="mb-3 flex gap-3">
-            <Switch style={{ background: "#03A790" }} />
-            Paid Leave
-          </div>
-          <div className="mb-3 flex gap-3">
-            <Switch style={{ background: "#03A790" }} />
-            Allow Negative Balance
-          </div>
-          <div className="mb-3 flex gap-3">
-            <Switch style={{ background: "#03A790" }} />
-            Reason Required
-          </div>
-          <div className="mb-3 flex gap-3">
-            <Switch style={{ background: "#03A790" }} />
-            Attachment Required
-          </div>
+        <InputMain input={input} values={inpuValues} handleChange={handleChange}/>
         </div>
       </div>
     </Modal>

@@ -27,6 +27,18 @@
 .notification-card.yellow  {
   background-color: rgb(250 204 21);
 }
+.notification-text.purple  {
+  color: rgb(192, 132, 252);
+}
+.notification-text.green  {
+  color: rgb(74 ,222 ,128);
+}
+.notification-text.orange  {
+  color: rgb(251 146 60);
+}
+.notification-text.yellow  {
+  color: rgb(250 204 21);
+}
 
 .uploaded-img:hover .uploaded-img-icon{
   display: block;

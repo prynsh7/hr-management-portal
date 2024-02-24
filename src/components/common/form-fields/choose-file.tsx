@@ -1,26 +1,29 @@
 import React from 'react';
-import { UploadOutlined } from '@ant-design/icons';
 import type { UploadProps } from 'antd';
 import { Button, message, Upload } from 'antd';
 
 interface Props {
-  label:string,
-  btnText: string;
-  isRequired: boolean;
+  label?:string,
+  isRequired?: boolean;
+  onChange?:(file:any)=>void;
 }
 
-const ChooseFile: React.FC<Props> = ({ btnText,label,isRequired }) => {
+const ChooseFile: React.FC<Props> = ({ label,isRequired,onChange }) => {
+  const dummyRequest = async ({ file, onSuccess }:any) => {    
+    setTimeout(() => {
+       onSuccess("ok");
+    }, 0);
+  }
   const props: UploadProps = {
     name: 'file',
-    action: 'https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188',
-    headers: {
-      authorization: 'authorization-text',
-    },
-    onChange(info) {
+  customRequest: dummyRequest,
+
+    onChange(info:any) {
       if (info.file.status !== 'uploading') {
         console.log(info.file, info.fileList);
       }
       if (info.file.status === 'done') {
+        onChange && onChange(info.file)
         message.success(`${info.file.name} file uploaded successfully`);
       } else if (info.file.status === 'error') {
         message.error(`${info.file.name} file upload failed.`);
@@ -29,16 +32,16 @@ const ChooseFile: React.FC<Props> = ({ btnText,label,isRequired }) => {
   };
 
   return (
-    <div >
+    <div>
       {label && (
         <label className="text-[#333333] opacity-70  font-semibold text-[14px]" htmlFor="">
           {label}{" "}
           {isRequired && <span className="text-red-500 font-bold">*</span>}
         </label>
       )}
-      <div className='border w-full rounded-[8px] h-[40px] flex items-center border-[#333333]/20 hover:border-blue-500 px-3 py-1'>
+      <div className='border w-full rounded-[8px] max-h-[full] flex items-center border-[#333333]/20 hover:border-blue-500 px-3 py-1'>
         <Upload {...props}>
-      <Button>{btnText}</Button>
+      <Button>Choose File</Button>
     </Upload>
       </div>
       

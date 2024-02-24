@@ -1,14 +1,111 @@
 import React, { useState } from "react";
 import Modal from "../common/modal/modal";
-import Input from "../common/form-fields/input";
-import { Switch } from "antd";
-import InputArea from "../common/form-fields/input-area";
-import DatePicker from "../common/form-fields/date-picker";
-import Select from "../common/form-fields/select";
-import ChooseFile from "../common/form-fields/choose-file";
-
+import InputMain from "../common/form-fields/input-main";
 
 const LeaveApplicationModal = ({ isOpen, onSubmit, onClose }: any) => {
+  const handleChange =(e:any)=>{
+    const {name,value}= e
+    setInputValues((prev:any)=>({...prev,[name]:value}))
+  }
+  const input= [
+    {
+        label:'Entitlement',
+        value:'',
+        type:'select',
+        key:'entitlement',
+        required: true,
+        placeholder:'Select Entitlement'
+      },
+      {
+        label:'Balance',
+        value: '',
+        type:'text',
+        key:'balance',
+        placeholder:'0 days'
+      },
+      {
+        label:'Session',
+        value:'',
+        type:'select',
+        key:'session',
+        required: true,
+        placeholder:'Session'
+      },
+    {
+        label:'From',
+        value:'',
+        type:'date',
+        key:'from_date',
+        required: true,
+        placeholder:'YYYY-MM-DD',
+        width:'50%'
+    },
+    {
+        label:'To',
+        value:'',
+        type:'date',
+        key:'to_date',
+        required: true,
+        placeholder:'YYYY-MM-DD',
+        width:'50%'
+    },
+    {
+        label:'Day',
+        value: '',
+        type:'text',
+        key:'day',
+        required: true,
+        placeholder:'0'
+      },
+    {
+        label:'Attachment 1',
+        value: '',
+        type:'choosefile',
+        key:'attachment1',
+        required: true,
+        width:'50%'
+      },
+    {
+        label:'Attachment 1',
+        value: '',
+        type:'choosefile',
+        key:'attachment1',
+        required: true,
+        width:'50%'
+      }, 
+    {
+        label:'Reason',
+        value: '',
+        type:'textarea',
+        key:'reason',
+        required: true,
+      }, 
+      {
+        label:'Submission Date',
+        value:'',
+        type:'date',
+        key:'submission_date',
+        required: true,
+        placeholder:'YYYY-MM-DD'
+    },
+    {
+      type:'toggler',
+      key:'Notify_Employee_After_Final_Approval',
+      onActive:'Notify Employee After Final Approval',
+      onDeactive:'Notify Employee After Final Approval'
+  },
+    {
+      label:'Remarks',
+      value: '',
+      type:'textarea',
+      key:'remarks',
+      required: true,
+    }, 
+    ]
+    const [inpuValues,setInputValues]=useState(input.reduce((acc:any, obj) => {
+      acc[obj.key] = obj.value;
+      return acc;
+    }, {}))
   return (
     <Modal
       width={"50%"}
@@ -25,57 +122,7 @@ const LeaveApplicationModal = ({ isOpen, onSubmit, onClose }: any) => {
           </h1>
         </div>
         <div className="flex flex-col h-[90%] gap-3 px-2 overflow-auto">
-          <div>
-            <Select
-              // label={"Entitlement"}
-              // isRequired
-              placeholder="Select Entitlement"
-              type="text"
-            />
-          </div>
-          <div>
-            <Input
-              label={"Balance"}
-              isRequired
-              placeholder="0 day"
-              type="text"
-            />
-          </div>
-          <div>
-            <Select
-              // label={"Session"}
-              // isRequired
-              placeholder="Select Session"
-              type="text"
-            />
-          </div>
-          <div>
-            <DatePicker label={"From "} isRequired />
-          </div>
-          <div>
-            <Input label={"Day"} placeholder="0" type="text" />
-          </div>
-          <div className="flex w-full gap-3">
-            <div className="w-full">
-            <ChooseFile btnText="Choose File" isRequired label="Attachment 1"/> 
-            </div>
-            <div className="w-full">
-            <ChooseFile btnText="Choose File" isRequired label="Attachment 2"/>
-            </div>
-          </div>
-          <div>
-            <InputArea label={"Reason"} />
-          </div>
-          <div>
-            <DatePicker label={"Submission Date"} isRequired />
-          </div>
-          <div className="flex gap-3">
-            <Switch style={{ background: "#03A790" }} />
-            Notify Employee After Final Approval 
-          </div> 
-          <div>
-            <InputArea isRequired label={"Remarks"} />
-          </div>
+        <InputMain input={input} values={inpuValues} handleChange={handleChange}/>
         </div>
       </div>
     </Modal>

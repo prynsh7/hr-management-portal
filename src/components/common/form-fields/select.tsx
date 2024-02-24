@@ -15,10 +15,20 @@ type Props = {
     height?: number
     width?: string
     options?: any
+    label?:string
+    isRequired?:boolean
 }
 
 const Select = (props: Props) => {
+  const { label, isRequired } = props;
   return (
+    <>
+    {label && (
+      <label className="text-[#333333] opacity-70  font-semibold text-[14px]" htmlFor="">
+        {label}{" "}
+        {isRequired && <span className="text-red-500 font-bold">*</span>}
+      </label>
+    )}
     <Sel
         value={props.value}
         onChange={props.onChange}
@@ -29,6 +39,7 @@ const Select = (props: Props) => {
         options={props.options}
         style={{width:"100%"}}
     />
+    </>
   )
 }
 

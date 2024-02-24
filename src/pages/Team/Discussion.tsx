@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Header from "../../components/common/header/header";
 import { FaPlus } from "react-icons/fa";
 import DiscussionModal from "../../components/Team/discussion-modal";
-import Chat from "../../components/Team/chat";
 import { useNavigate } from "react-router-dom";
 
 const Discussion = () => {
@@ -14,7 +13,7 @@ const Discussion = () => {
   const navigateTo = () => {
     navigate("/discussion/id");
   };
-  const topic = [
+    const topic = [
     {
       id:1,
       title:"Catalyst",
@@ -33,7 +32,7 @@ const Discussion = () => {
   ];
 
   const breadcrumbItems = ["Home", "Discussion"];
-
+  
   return (
     <div>
       <DiscussionModal
