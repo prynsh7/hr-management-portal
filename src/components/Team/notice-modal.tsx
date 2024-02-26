@@ -2,45 +2,48 @@ import React, { useState } from "react";
 import Modal from "../common/modal/modal";
 import InputMain from "../common/form-fields/input-main";
 
-const HolidayModal = ({ isOpen, onSubmit, onClose }: any) => {
+const NoticeModal = ({ isOpen, onSubmit, onClose }: any) => {
   const handleChange = (e: any) => {
     const { name, value } = e;
     setInputValues((prev: any) => ({ ...prev, [name]: value }));
   };
   const input = [
     {
-      label: "Name",
+      label: "Title",
       value: "",
       type: "text",
-      key: "name",
+      key: "title",
       required: true,
-      placeholder: "Name",
+      placeholder: "Title",
     },
     {
-      label: "From",
-      value: '',
+      label: "Date",
+      value:'',
       type: "date",
-      key: "from_date",
+      key: "date",
       required: true,
-      placeholder: "YYYY-MM-DD",
-      width:'50%'
     },
     {
-      label: "To",
-      value: '',
-      type: "date",
-      key: "to_date",
+      label: "Notify Employee",
+      value: "",
+      type: "toggler",
+      key: "notify_employee",
       required: true,
-      placeholder: "YYYY-MM-DD",
-      width:'50%'
     },
     {
-      label: "Description",
+      label: "Attachment",
+      value: "",
+      type: "choosefile",
+      key: "attachment",
+      required: true,
+    },
+    {
+      label: "Content",
       value: "",
       type: "textarea",
-      key: "description",
+      key: "content",
       required: true,
-      placeholder: "Description",
+      placeholder: "5000 character max",
     },
   ];
   const [inpuValues, setInputValues] = useState(
@@ -56,16 +59,16 @@ const HolidayModal = ({ isOpen, onSubmit, onClose }: any) => {
       handleSubmit={onSubmit}
       handleCancel={onClose}
       cancelButtonText="Close"
-      submitButtonText="Save"
+      submitButtonText="Save Changes"
     >
       <div>
         <div className="border-b-2 w-full mb-6">
           <h1 className="text-[#333333] opacity-70 font-semibold text-[14px] pb-3">
-            Add Holiday
+            Add Notice
           </h1>
         </div>
-        <div>
-          <InputMain
+        <div className="flex flex-col h-[90%] gap-3 px-2 overflow-auto">
+        <InputMain
             input={input}
             values={inpuValues}
             handleChange={handleChange}
@@ -76,4 +79,4 @@ const HolidayModal = ({ isOpen, onSubmit, onClose }: any) => {
   );
 };
 
-export default HolidayModal;
+export default NoticeModal;

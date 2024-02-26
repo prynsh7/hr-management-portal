@@ -15,6 +15,12 @@ import SignUp from "../pages/auth/SignUp";
 import ForgotPassword from "../pages/auth/ForgotPassword";
 import Verify from "../pages/auth/Verify";
 import SetPassword from "../pages/auth/SetPassword";
+import LeaveType from "../pages/Leave/LeaveType";
+import Entitlement from "../pages/Leave/Entitlement";
+import LeaveAppllication from "../pages/Leave/LeaveApplication";
+import Chat from "../components/Team/chat";
+import Notice from "../pages/Team/Notice";
+import Discussion from "../pages/Team/Discussion";
 
 // const Department = lazy(() => import("../pages/master/Department"));
 
@@ -148,6 +154,76 @@ const Router = (props: Props) => {
             <RequireAuth>
               <DashboardLayout>
                 <EmployeeDetails />
+              </DashboardLayout>
+            </RequireAuth>
+          </React.Suspense>
+        }
+      />
+      <Route
+        path="/leavetype"
+        element={
+          <React.Suspense fallback={<Loading h={"100vh"} />}>
+            <RequireAuth>
+              <DashboardLayout>
+                <LeaveType />
+              </DashboardLayout>
+            </RequireAuth>
+          </React.Suspense>
+        }
+      />
+      <Route
+        path="/leaveapplication"
+        element={
+          <React.Suspense fallback={<Loading h={"100vh"} />}>
+            <RequireAuth>
+              <DashboardLayout>
+                <LeaveAppllication />
+              </DashboardLayout>
+            </RequireAuth>
+          </React.Suspense>
+        }
+      />
+      <Route
+        path="/entitlement"
+        element={
+          
+              <DashboardLayout>
+                <Entitlement />
+              </DashboardLayout>
+           
+        }
+      />
+      <Route
+        path="/discussion"
+        element={
+          <React.Suspense fallback={<Loading h={"100vh"} />}>
+            <RequireAuth>
+              <DashboardLayout>
+                <Discussion />
+              </DashboardLayout>
+            </RequireAuth>
+          </React.Suspense>
+        }
+      />
+      <Route
+        path="/discussion/id"
+        element={
+          <React.Suspense fallback={<Loading h={"100vh"} />}>
+            <RequireAuth>
+              <DashboardLayout>
+                <Chat />
+              </DashboardLayout>
+            </RequireAuth>
+          </React.Suspense>
+        }
+      />
+      <Route
+        path="/notice"
+        element={
+          <React.Suspense fallback={<Loading h={"100vh"} />}>
+            <RequireAuth>
+              <DashboardLayout>
+                <Notice/>
               </DashboardLayout>
             </RequireAuth>
           </React.Suspense>

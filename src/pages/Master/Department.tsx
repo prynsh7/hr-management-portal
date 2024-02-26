@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import Table from "../../components/common/table/table";
 import Button from "../../components/common/partial/button";
-import { IMAGES } from "../../assets/images";
-import Heading from "../../components/common/partial/heading";
-import DepartmentModal from "../../components/master/documentcatgory-modal";
-import Input from "../../components/common/form-fields/input";
-import Breadcrumb from "../../components/common/bredcrumb";
+import DepartmentModal from "../../components/master/department-modal";
 import { FaPlus, FaRegEdit } from "react-icons/fa";
 import Header from "../../components/common/header/header";
 
