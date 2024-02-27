@@ -1,6 +1,5 @@
 import React  from 'react'
 import {useState}  from 'react'
-import StatusToggler from '../../components/common/partial/badges';
 import Button from '../../components/common/partial/button';
 import { FaRegEdit } from "react-icons/fa";
 import Header from '../../components/common/header/header';
@@ -8,9 +7,6 @@ import Table from '../../components/common/table/table';
 import { FaPlus } from "react-icons/fa6";
 import EntitlementModal from '../../components/leave/entitlement-modal';
 
-
-
-type Props = {};
 interface DataType {
   key: React.Key;
   type:string,
@@ -21,10 +17,24 @@ interface DataType {
 }
 const Entitlement = () => {
     const [isOpen, setIsOpen] = useState(false);
-  const handleCloseModal = () => setIsOpen(false);
-  const handleOpenModal = () => setIsOpen(true);
+    const handleCloseModal = () =>{ setIsOpen(false);setSelectedData(undefined)}
+  const handleOpenModal = (record?:any) =>{ setIsOpen(true); 
+  record && setSelectedData(record)}
+  const [selectedData,setSelectedData]=useState(undefined)
+  const handleSubmit = (newData:any) => {
+    // const dataIndex = dataSource.findIndex((item) => item. === newData.code);
 
-  const dataSource = [
+  // if (dataIndex !== -1) {
+  //   const updatedDataSource = [...dataSource];
+  //   updatedDataSource[dataIndex] = newData;
+  //   setDataSource(updatedDataSource);
+  // } else {
+    setDataSource(prevDataSource => [...prevDataSource, newData]);
+  // }
+  handleCloseModal();
+  };
+  const [dataSource,setDataSource] = useState(
+    [
     {
       type:'Casual',
       earningstart:'14/01/24',
@@ -99,7 +109,7 @@ const Entitlement = () => {
     },
     
     
-  ];
+  ]);
 
   const columns = [
     {
@@ -126,7 +136,7 @@ const Entitlement = () => {
       title: "Action",
       render: (record: DataType) => (
         <div>
-          <Button state="primary" className="border" onClick={handleOpenModal}>
+          <Button state="primary" className="border" onClick={()=>{handleOpenModal(record)}}>
             <div className="flex gap-2 items-center"><FaRegEdit size={17} /></div>
           </Button>
         </div>
@@ -139,7 +149,8 @@ const Entitlement = () => {
       <EntitlementModal
         isOpen={isOpen}
         onClose={handleCloseModal}
-        onSubmit={handleCloseModal}
+        onSubmit={handleSubmit}
+        selectedData={selectedData}
       />
       <Header
         heading="Entitlement"

@@ -1,58 +1,55 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Modal from "../common/modal/modal";
 import InputMain from "../common/form-fields/input-main";
+import { jobPositionInputs as input } from "../../constant/input-constant";
 
-const JobPositionModal = ({ isOpen, onSubmit, onClose }: any) => {
+const JobPositionModal = ({ isOpen, onSubmit, onClose, selectedData }: any) => {
+  const handleClose = () => {
+    onClose();
+    setInputValues({});
+  };
   const handleChange = (e: any) => {
     const { name, value } = e;
     setInputValues((prev: any) => ({ ...prev, [name]: value }));
   };
-  const input = [
-    {
-      label: "Title",
-      value: "",
-      type: "text",
-      key: "title",
-      required: true,
-      placeholder: "Title",
-    },
-    {
-      label: "Code",
-      value: "",
-      type: "text",
-      key: "code",
-      required: true,
-      placeholder: "Code",
-    },
-    {
-      type: "toggler",
-      key: "job_status",
-      required: true,
-      onActive: "Active",
-      onDeactive: "Deactive",
-    },
-    {
-      label: "Content",
-      value: "",
-      type: "textarea",
-      key: "content",
-      required: true,
-      placeholder: "5000 character max",
-    },
-  ];
-  const [inpuValues, setInputValues] = useState(
-    input.reduce((acc: any, obj) => {
-      acc[obj.key] = obj.value;
-      return acc;
-    }, {})
+
+  const handleSubmit = () => {
+    const isRequiredFilled = input.every((input) => {
+      if (input.required) {
+        return !!inputValues[input.key];
+      }
+      return true;
+    });
+
+    if (isRequiredFilled) {
+      onSubmit(inputValues);
+      handleClose();
+    } else {
+      alert("Please fill in all required fields.");
+    }
+  };
+
+  const [inputValues, setInputValues] = useState(
+    selectedData
+      ? selectedData
+      : input.reduce((acc: any, obj) => {
+          acc[obj.key] = obj.value;
+          return acc;
+        }, {})
   );
+
+  useEffect(() => {
+    if (selectedData) {
+      setInputValues(selectedData);
+    }
+  }, [selectedData]);
 
   return (
     <Modal
       width={"50%"}
       isOpen={isOpen}
-      handleSubmit={onSubmit}
-      handleCancel={onClose}
+      handleSubmit={handleSubmit}
+      handleCancel={handleClose}
       cancelButtonText="Close"
       submitButtonText="Save"
     >
@@ -65,7 +62,7 @@ const JobPositionModal = ({ isOpen, onSubmit, onClose }: any) => {
         <div>
           <InputMain
             input={input}
-            values={inpuValues}
+            values={inputValues}
             handleChange={handleChange}
           />
         </div>

@@ -13,10 +13,25 @@ interface DataType {
 
 const Department = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const handleCloseModal = () => setIsOpen(false);
-  const handleOpenModal = () => setIsOpen(true);
+  const handleCloseModal = () =>{ setIsOpen(false);setSelectedData(undefined)}
+  const handleOpenModal = (record?:any) =>{ setIsOpen(true); 
+  record && setSelectedData(record)}
+  const [selectedData,setSelectedData]=useState(undefined)
+  const handleSubmit = (newData: any) => {
+    const dataIndex = dataSource.findIndex(
+      (item) => item.si_no === newData.si_no
+    );
 
-  const dataSource = [
+    if (dataIndex !== -1) {
+      const updatedDataSource = [...dataSource];
+      updatedDataSource[dataIndex] = newData;
+      setDataSource(updatedDataSource);
+    } else {
+      setDataSource((prevDataSource) => [...prevDataSource, newData]);
+    }
+    handleCloseModal();
+  };
+  const [dataSource, setDataSource] = useState([
     {
       key: "1",
       si_no: "1",
@@ -65,7 +80,7 @@ const Department = () => {
       name: "Psychology",
       code: "PSY808",
     },
-  ];
+  ]);
 
   const columns = [
     {
@@ -78,21 +93,23 @@ const Department = () => {
       dataIndex: "name",
       key: "name",
       sorter: (a: DataType, b: DataType) => a.name.localeCompare(b.name),
-      sortDirections: ['ascend', 'descend'],
+      sortDirections: ["ascend", "descend"],
     },
     {
       title: "Code",
       dataIndex: "code",
       key: "code",
       sorter: (a: DataType, b: DataType) => Number(a.code) - Number(b.code),
-      sortDirections: ['ascend', 'descend'],
+      sortDirections: ["ascend", "descend"],
     },
     {
       title: "Action",
       render: (record: DataType) => (
         <div>
-          <Button state="primary" className="border" onClick={handleOpenModal}>
-            <div className="flex gap-2 items-center"><FaRegEdit size={17} /></div>
+          <Button state="primary" className="border" onClick={()=>{handleOpenModal(record)}}>
+            <div className="flex gap-2 items-center">
+              <FaRegEdit size={17} />
+            </div>
           </Button>
         </div>
       ),
@@ -105,9 +122,11 @@ const Department = () => {
       <DepartmentModal
         isOpen={isOpen}
         onClose={handleCloseModal}
-        onSubmit={handleCloseModal}
+        onSubmit={handleSubmit}
+        dataSource={dataSource} 
+        selectedData={selectedData}
       />
-      
+
       <Header
         heading="Department"
         breadcrumbItems={breadcrumbItems}

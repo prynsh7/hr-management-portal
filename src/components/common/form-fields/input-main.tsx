@@ -30,10 +30,10 @@ const InputMain = ({
   handleChange: (e: any) => void;
 }) => {
   return (
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap w-full">
       {input.map((input) => {
         return (
-          <div key={input.key} className={`mb-3 flex-col flex  px-[10px] ` + (input.width ? `w-[${input.width}]`:`w-full`)}>
+          <div key={input.key} className={`mb-3 flex-col flex px-[10px] ${input.width ? `w-[${input.width}]` : 'w-full'}`}>
             {(input.type === "text" || input.type === "number") && (
               <Input
                 type={input.type}

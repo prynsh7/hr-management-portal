@@ -1,80 +1,54 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Modal from "../common/modal/modal";
 import InputMain from "../common/form-fields/input-main";
+import { leaveTypeInputs as input } from "../../constant/input-constant";
 
-const LeaveTypeModal = ({ isOpen, onSubmit, onClose }: any) => {
-  const handleChange =(e:any)=>{
-    const {name,value}= e
-    setInputValues((prev:any)=>({...prev,[name]:value}))
-  }
-  const input= [
-    {
-        label:'Code',
-        value:'',
-        type:'text',
-        key:'code',
-        required: true,
-        placeholder:'Code'
-      },
-      {
-        label:'Description',
-        value: '',
-        type:'text',
-        key:'description',
-        required: true,
-        placeholder:'Description'
-      },
-    {
-        type:'toggler',
-        key:'status',
-        onActive:'Active',
-        onDeactive:'Deactive'
-    },
-    {
-      label:'Day Count',
-      value: '',
-      type:'text',
-      key:'day_count',
-      required: true,
-      placeholder:'Day Count'
-    },
-    {
-      type:'toggler',
-      key:'paid_leave',
-      onActive:'Paid Leave',
-      onDeactive:'Paid Leave'
-  },
-    {
-      type:'toggler',
-      key:'negative_balance',
-      onActive:'Allow Negative Balance',
-      onDeactive:'Allow Negative Balance'
-  },
-    {
-      type:'toggler',
-      key:'reason_required',
-      onActive:'Reason Required',
-      onDeactive:'Reason Required'
-  },
-    {
-      type:'toggler',
-      key:'attachment_required',
-      onActive:'Attachment Required',
-      onDeactive:'Attachment Required'
-  },
+
+const LeaveTypeModal = ({ isOpen, onSubmit, onClose,selectedData }: any) => {
+  const handleClose = () => {
+    onClose();
+    setInputValues({});
+  };
+  const handleChange = (e: any) => {
+    const { name, value } = e;
+    setInputValues((prev: any) => ({ ...prev, [name]: value }));
+  };
     
-    ]
-    const [inpuValues,setInputValues]=useState(input.reduce((acc:any, obj) => {
-      acc[obj.key] = obj.value;
-      return acc;
-    }, {}))
-    console.log(inpuValues);
-    
+  const handleSubmit = () => {
+    const isRequiredFilled = input.every((input) => {
+      if (input.required) {
+        return !!inputValues[input.key];
+      }
+      return true;
+    });
+
+    if (isRequiredFilled) {
+      onSubmit(inputValues);
+      handleClose();
+    } else {
+      alert("Please fill in all required fields.");
+    }
+  };
+  const [inputValues, setInputValues] = useState(
+    selectedData
+      ? selectedData
+      : input.reduce((acc: any, obj) => {
+          acc[obj.key] = obj.value;
+          return acc;
+        }, {})
+  );
+
+  useEffect(() => {
+    if (selectedData) {
+      setInputValues(selectedData);
+    }
+  }, [selectedData]);
+
   return (
     <Modal
       width={"50%"}
       isOpen={isOpen}
-      handleSubmit={onSubmit}
+      handleSubmit={handleSubmit}
       handleCancel={onClose}
       cancelButtonText="Close"
       submitButtonText="Save"
@@ -86,7 +60,11 @@ const LeaveTypeModal = ({ isOpen, onSubmit, onClose }: any) => {
           </h1>
         </div>
         <div className="flex flex-col gap-y-3 ">
-        <InputMain input={input} values={inpuValues} handleChange={handleChange}/>
+          <InputMain
+            input={input}
+            values={inputValues}
+            handleChange={handleChange}
+          />
         </div>
       </div>
     </Modal>

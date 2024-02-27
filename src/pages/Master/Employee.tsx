@@ -4,7 +4,6 @@ import Breadcrumb from "../../components/common/bredcrumb";
 import Table from "../../components/common/table/table";
 import Button from "../../components/common/partial/button";
 import { useNavigate } from "react-router-dom";
-import { Switch } from "antd";
 import { FaRegEdit } from "react-icons/fa";
 // import StatusToggler from "../../components/common/partial/status-toggler";
 import img from "../../assets/images/auth.png";
@@ -28,8 +27,19 @@ const Employee = (props: Props) => {
   const navigateToAdd = () => {
     navigate("/employee/id");
   };
- 
-  const dataSource = [
+  const handleSubmit = (newData:any) => {
+    const dataIndex = dataSource.findIndex((item) => item.id === newData.id);
+
+  if (dataIndex !== -1) {
+    const updatedDataSource = [...dataSource];
+    updatedDataSource[dataIndex] = newData;
+    setDataSource(updatedDataSource);
+  } else {
+    setDataSource(prevDataSource => [...prevDataSource, newData]);
+  }
+  };
+  const [dataSource,setDataSource] = useState(
+    [
     {
       id: 1,
       location: "bihar",
@@ -80,7 +90,7 @@ const Employee = (props: Props) => {
       location: "bihar",
       status: isActive ? "Active" : "Deactive",
     },
-  ];
+  ]);
   const columns = [
     {
       title: "Employee",

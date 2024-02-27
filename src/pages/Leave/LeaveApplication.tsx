@@ -6,9 +6,24 @@ import Button from "../../components/common/partial/button";
 
 const LeaveAppllication = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const handleCloseModal = () => setIsOpen(false);
-  const handleOpenModal = () => setIsOpen(true);
-  const employee = [
+  const handleCloseModal = () =>{ setIsOpen(false);setSelectedData(undefined)}
+  const handleOpenModal = (record?:any) =>{ setIsOpen(true); 
+  record && setSelectedData(record)}
+  const [selectedData,setSelectedData]=useState(undefined)
+  const handleSubmit = (newData:any) => {
+    const dataIndex = employee.findIndex((item) => item.code === newData.code);
+
+  if (dataIndex !== -1) {
+    const updatedDataSource = [...employee];
+    updatedDataSource[dataIndex] = newData;
+    setEmployee(updatedDataSource);
+  } else {
+    setEmployee(prevEmployee => [...prevEmployee, newData]);
+  }
+  handleCloseModal();
+  };
+  const [employee,setEmployee] = useState(
+    [
     {
       image:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU3HFVnkYFJ_OIogo__Qv58bmhwRqZJcQhOA&usqp=CAU",
@@ -59,7 +74,7 @@ const LeaveAppllication = () => {
       dateFrom: "14 november",
       dateTo: "17 november",
     },
-  ];
+  ]);
 
   const breadcrumbItems = ["Home", "Leave Application"];
 
@@ -68,7 +83,8 @@ const LeaveAppllication = () => {
       <LeaveApplicationModal
         isOpen={isOpen}
         onClose={handleCloseModal}
-        onSubmit={handleCloseModal}
+        onSubmit={handleSubmit}
+        selectedData={selectedData}
       />
       <Header
         heading="Leave Application"
@@ -144,7 +160,7 @@ const EmployeeCard = ({
   handleOpenModal,
 }: {
   employee: any;
-  handleOpenModal: () => void;
+  handleOpenModal: (record:any) => void;
 }) => {
   const { image, name, code, leaveType, description, dateFrom, dateTo } =
     employee;
@@ -198,7 +214,7 @@ const EmployeeCard = ({
             </Button>
             <p
               className="text-blue-500 pr-6 hover:cursor-pointer hover:underline hover:text-purple-400"
-              onClick={handleOpenModal}
+              onClick={()=>{handleOpenModal(employee)}}
             >
               Detail
             </p>

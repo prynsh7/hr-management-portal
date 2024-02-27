@@ -6,14 +6,29 @@ import { useNavigate } from "react-router-dom";
 
 const Discussion = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const handleCloseModal = () => setIsOpen(false);
-  const handleOpenModal = () => setIsOpen(true);
-  
+  const handleCloseModal = () =>{ setIsOpen(false);setSelectedData(undefined)}
+  const handleOpenModal = (record?:any) =>{ setIsOpen(true); 
+  record && setSelectedData(record)}
+  const [selectedData,setSelectedData]=useState(undefined)
+  const handleSubmit = (newData:any) => {
+    const dataIndex = topic.findIndex((item) => item.id === newData.id);
+
+  if (dataIndex !== -1) {
+    const updatedDataSource = [...topic];
+    updatedDataSource[dataIndex] = newData;
+    setTopic(updatedDataSource);
+  } else {
+    setTopic(prevTopic => [...prevTopic, newData]);
+  }
+  handleCloseModal();
+  };
+
   const navigate = useNavigate();
   const navigateTo = () => {
     navigate("/discussion/id");
   };
-    const topic = [
+  const [topic,setTopic] = useState(
+    [
     {
       id:1,
       title:"Catalyst",
@@ -29,7 +44,7 @@ const Discussion = () => {
       title:"BackEnd Department",
       description:"working on backend of nnn project",
     },
-  ];
+  ]);
 
   const breadcrumbItems = ["Home", "Discussion"];
   
@@ -38,7 +53,9 @@ const Discussion = () => {
       <DiscussionModal
         isOpen={isOpen}
         onClose={handleCloseModal}
-        onSubmit={handleCloseModal}
+        onSubmit={handleSubmit}
+        topic={topic}
+        selectedData={selectedData}
       />
       <Header
         heading="Discussion"

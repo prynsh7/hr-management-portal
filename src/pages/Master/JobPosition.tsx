@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import Button from "../../components/common/partial/button";
-import Heading from "../../components/common/partial/heading";
 import Table from "../../components/common/table/table";
 import Badges from "../../components/common/partial/badges";
 import JobPositionModal from "../../components/master/jobposition-modal";
-import Breadcrumb from "../../components/common/bredcrumb";
 import { FaRegEdit } from "react-icons/fa";
 import Header from "../../components/common/header/header";
 import { FaPlus } from "react-icons/fa6";
@@ -21,61 +19,76 @@ interface DataType {
 
 function JobPosition(props: Props) {
   const [isOpen, setIsOpen] = useState(false);
-  const handleCloseModal = () => setIsOpen(false);
-  const handleOpenModal = () => setIsOpen(true);
+  const handleCloseModal = () =>{ setIsOpen(false);setSelectedData(undefined)}
+  const handleOpenModal = (record?:any) =>{ setIsOpen(true); 
+  record && setSelectedData(record)}
+  const [selectedData,setSelectedData]=useState(undefined)
+  const handleSubmit = (newData:any) => {
+    const dataIndex = dataSource.findIndex((item) => item.code === newData.code);
 
-  const dataSource = [
-    {
-      title: "Software Engineer",
-      code: 101,
-      description: "Developing and maintaining software applications.",
-    },
-    {
-      title: "Product Manager",
-      code: 202,
-      description: "Leading product development and strategy.",
-    },
-    {
-      title: "Data Scientist",
-      code: 303,
-      description: "Analyzing and interpreting complex data sets.",
-    },
-    {
-      title: "UX/UI Designer",
-      code: 404,
-      description: "Creating user-centered designs for digital experiences.",
-    },
-    {
-      title: "Marketing Specialist",
-      code: 505,
-      description: "Planning and executing marketing campaigns.",
-    },
-    {
-      title: "Network Administrator",
-      code: 606,
-      description: "Managing and maintaining computer networks.",
-    },
-    {
-      title: "Financial Analyst",
-      code: 707,
-      description: "Analyzing financial data and trends.",
-    },
-    {
-      title: "Human Resources Manager",
-      code: 808,
-      description: "Overseeing HR functions and employee relations.",
-    },
-    {
-      title: "Sales Representative",
-      code: 909,
-      description: "Selling products or services to clients.",
-    },
-    {
-      title: "Customer Support Specialist",
-      code: 1010,
-      description: "Assisting customers with product-related inquiries.",
-    },
-  ];
+  if (dataIndex !== -1) {
+    const updatedDataSource = [...dataSource];
+    updatedDataSource[dataIndex] = newData;
+    setDataSource(updatedDataSource);
+  } else {
+    setDataSource(prevDataSource => [...prevDataSource, newData]);
+  }
+  handleCloseModal();
+  };
+  const [dataSource,setDataSource] = useState(
+    [
+      {
+        title: "Software Engineer",
+        code: 101,
+        description: "Developing and maintaining software applications.",
+      },
+      {
+        title: "Product Manager",
+        code: 202,
+        description: "Leading product development and strategy.",
+      },
+      {
+        title: "Data Scientist",
+        code: 303,
+        description: "Analyzing and interpreting complex data sets.",
+      },
+      {
+        title: "UX/UI Designer",
+        code: 404,
+        description: "Creating user-centered designs for digital experiences.",
+      },
+      {
+        title: "Marketing Specialist",
+        code: 505,
+        description: "Planning and executing marketing campaigns.",
+      },
+      {
+        title: "Network Administrator",
+        code: 606,
+        description: "Managing and maintaining computer networks.",
+      },
+      {
+        title: "Financial Analyst",
+        code: 707,
+        description: "Analyzing financial data and trends.",
+      },
+      {
+        title: "Human Resources Manager",
+        code: 808,
+        description: "Overseeing HR functions and employee relations.",
+      },
+      {
+        title: "Sales Representative",
+        code: 909,
+        description: "Selling products or services to clients.",
+      },
+      {
+        title: "Customer Support Specialist",
+        code: 1010,
+        description: "Assisting customers with product-related inquiries.",
+      },
+    ]
+  )
 
   const columns = [
     {
@@ -109,7 +122,7 @@ function JobPosition(props: Props) {
       title: "Action",
       render: (record: DataType) => (
         <div>
-          <Button state="primary" className="border" onClick={handleOpenModal}>
+          <Button state="primary" className="border" onClick={()=>{handleOpenModal(record)}}>
             <div className="flex gap-2 items-center"><FaRegEdit size={17} /></div>
           </Button>
         </div>
@@ -123,7 +136,8 @@ function JobPosition(props: Props) {
       <JobPositionModal
         isOpen={isOpen}
         onClose={handleCloseModal}
-        onSubmit={handleCloseModal}
+        onSubmit={handleSubmit}
+        selectedData={selectedData}
       />
       <Header
         heading="Job Position"

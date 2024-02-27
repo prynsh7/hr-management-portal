@@ -1,60 +1,54 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Modal from "../common/modal/modal";
 import InputMain from "../common/form-fields/input-main";
+import { holidayInputs as input} from "../../constant/input-constant";
 
-const HolidayModal = ({ isOpen, onSubmit, onClose }: any) => {
+const HolidayModal = ({ isOpen, onSubmit, onClose,selectedData }: any) => {
+  const handleClose = () => {
+    onClose();
+    setInputValues({});
+  };
   const handleChange = (e: any) => {
     const { name, value } = e;
     setInputValues((prev: any) => ({ ...prev, [name]: value }));
   };
-  const input = [
-    {
-      label: "Name",
-      value: "",
-      type: "text",
-      key: "name",
-      required: true,
-      placeholder: "Name",
-    },
-    {
-      label: "From",
-      value: '',
-      type: "date",
-      key: "from_date",
-      required: true,
-      placeholder: "YYYY-MM-DD",
-      width:'50%'
-    },
-    {
-      label: "To",
-      value: '',
-      type: "date",
-      key: "to_date",
-      required: true,
-      placeholder: "YYYY-MM-DD",
-      width:'50%'
-    },
-    {
-      label: "Description",
-      value: "",
-      type: "textarea",
-      key: "description",
-      required: true,
-      placeholder: "Description",
-    },
-  ];
-  const [inpuValues, setInputValues] = useState(
-    input.reduce((acc: any, obj) => {
-      acc[obj.key] = obj.value;
-      return acc;
-    }, {})
+  
+  const handleSubmit = () => {
+    const isRequiredFilled = input.every((input) => {
+      if (input.required) {
+        return !!inputValues[input.key];
+      }
+      return true;
+    });
+
+    if (isRequiredFilled) {
+      onSubmit(inputValues);
+      handleClose();
+    } else {
+      alert("Please fill in all required fields.");
+    }
+  };
+  const [inputValues, setInputValues] = useState(
+    selectedData
+      ? selectedData
+      : input.reduce((acc: any, obj) => {
+          acc[obj.key] = obj.value;
+          return acc;
+        }, {})
   );
+
+  useEffect(() => {
+    if (selectedData) {
+      setInputValues(selectedData);
+    }
+  }, [selectedData]);
+
   return (
     <Modal
       width={"50%"}
       isOpen={isOpen}
-      handleSubmit={onSubmit}
-      handleCancel={onClose}
+      handleSubmit={handleSubmit}
+      handleCancel={handleClose}
       cancelButtonText="Close"
       submitButtonText="Save"
     >
@@ -67,7 +61,7 @@ const HolidayModal = ({ isOpen, onSubmit, onClose }: any) => {
         <div>
           <InputMain
             input={input}
-            values={inpuValues}
+            values={inputValues}
             handleChange={handleChange}
           />
         </div>

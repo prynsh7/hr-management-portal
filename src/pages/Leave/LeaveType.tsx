@@ -8,9 +8,6 @@ import { FaPlus } from "react-icons/fa6";
 import LeaveTypeModal from '../../components/leave/leave-type-modal';
 import Badges from '../../components/common/partial/badges';
 
-
-
-type Props = {};
 interface DataType {
   key: React.Key;
   code: Number;
@@ -19,10 +16,24 @@ interface DataType {
 }
 const LeaveType = () => {
     const [isOpen, setIsOpen] = useState(false);
-  const handleCloseModal = () => setIsOpen(false);
-  const handleOpenModal = () => setIsOpen(true);
+    const handleCloseModal = () =>{ setIsOpen(false);setSelectedData(undefined)}
+    const handleOpenModal = (record?:any) =>{ setIsOpen(true); 
+    record && setSelectedData(record)}
+    const [selectedData,setSelectedData]=useState(undefined)
+  const handleSubmit = (newData:any) => {
+    const dataIndex = dataSource.findIndex((item) => item.code === newData.code);
 
-  const dataSource = [
+  if (dataIndex !== -1) {
+    const updatedDataSource = [...dataSource];
+    updatedDataSource[dataIndex] = newData;
+    setDataSource(updatedDataSource);
+  } else {
+    setDataSource(prevDataSource => [...prevDataSource, newData]);
+  }
+  handleCloseModal();
+  };
+  const [dataSource,setDataSource] = useState(
+    [
     {
       code: 101,
       daycount:10,
@@ -73,7 +84,7 @@ const LeaveType = () => {
       daycount:10,
       description: "Assisting customers with product-related inquiries.",
     },
-  ];
+  ]);
 
   const columns = [
     {
@@ -103,7 +114,7 @@ const LeaveType = () => {
       title: "Action",
       render: (record: DataType) => (
         <div>
-          <Button state="primary" className="border" onClick={handleOpenModal}>
+          <Button state="primary" className="border" onClick={()=>{handleOpenModal(record)}}>
             <div className="flex gap-2 items-center"><FaRegEdit size={17} /></div>
           </Button>
         </div>
@@ -116,7 +127,8 @@ const LeaveType = () => {
       <LeaveTypeModal
         isOpen={isOpen}
         onClose={handleCloseModal}
-        onSubmit={handleCloseModal}
+        onSubmit={handleSubmit}
+        selectedData={selectedData}
       />
       <Header
         heading="Leave Type"

@@ -1,43 +1,58 @@
 import Modal from "../common/modal/modal";
 import InputMain from "../common/form-fields/input-main";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { departmentInputs as input } from "../../constant/input-constant";
 
-const DepartmentModal = ({ isOpen, onSubmit, onClose }: any) => {
+
+const DepartmentModal = ({ isOpen, onSubmit, onClose, dataSource, selectedData }: any) => {
+  const handleClose = () => {
+    onClose();
+    setInputValues({});
+  }; 
   const handleChange = (e: any) => {
     const { name, value } = e;
     setInputValues((prev: any) => ({ ...prev, [name]: value }));
   };
-  const input = [
-    {
-      label: "Enter Department Name",
-      value: "",
-      type: "text",
-      key: "department_name",
-      required: true,
-      placeholder: "Enter Department Name",
-    },
-    {
-      label: "Enter Code",
-      value: "",
-      type: "text",
-      key: "code",
-      required: true,
-      placeholder: "Enter Code",
-    },
-  ];
-  const [inpuValues, setInputValues] = useState(
-    input.reduce((acc: any, obj) => {
-      acc[obj.key] = obj.value;
-      return acc;
-    }, {})
+ 
+  const handleSubmit = () => {
+    const isRequiredFilled = input.every((input) => {
+      if (input.required) {
+        return !!inputValues[input.key];
+      }
+      return true;
+    });
+    dataSource.si_no = 8;
+    if (isRequiredFilled) {
+      const nextSiNo = dataSource.si_no + 1;
+
+      const newData = { ...inputValues, si_no: nextSiNo };
+
+      onSubmit(newData);
+      onClose();
+    } else {
+      alert("Please fill in all required fields.");
+    }
+  };
+  const [inputValues, setInputValues] = useState(
+    selectedData
+      ? selectedData
+      : input.reduce((acc: any, obj) => {
+          acc[obj.key] = obj.value;
+          return acc;
+        }, {})
   );
 
+  useEffect(() => {
+    if (selectedData) {
+      setInputValues(selectedData);
+    }
+  }, [selectedData]);
   return (
     <Modal
       width={"50%"}
       isOpen={isOpen}
-      handleSubmit={onSubmit}
-      handleCancel={onClose}
+      handleSubmit={handleSubmit}
+      handleCancel={handleClose}
       cancelButtonText="close"
       submitButtonText="Save Changes"
     >
@@ -49,7 +64,7 @@ const DepartmentModal = ({ isOpen, onSubmit, onClose }: any) => {
       <div className="flex flex-col gap-3">
         <InputMain
           input={input}
-          values={inpuValues}
+          values={inputValues}
           handleChange={handleChange}
         />
       </div>
